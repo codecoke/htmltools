@@ -2,10 +2,10 @@
 
 ## git home
 
-[public/doc](./public/doc/)
-[es6-ruanyifeng](./public/doc/es6-ruanyifeng/)
-[jquery-api](./public/doc/jquery/index.html)
-[zepto.1.2.0](./public/doc/zepto1.2.0.html)
+[public/doc](../public/doc/)
+[es6-ruanyifeng](../public/doc/es6-ruanyifeng/)
+[jquery-api](../public/doc/jquery/index.html)
+[zepto.1.2.0](../public/doc/zepto1.2.0.html)
 
 ### 版权许可
 
