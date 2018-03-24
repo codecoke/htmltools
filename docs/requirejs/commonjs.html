@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>How to get started with RequireJS</title>
+    <title>CommonJS Notes</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -10,7 +10,7 @@
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <link rel="stylesheet" type="text/css" href="highlight.css">
 
-    <script type="text/javascript" src="../../../core/lib/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./lib/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="init.js"></script>
     <script src="dojo.xd.js"></script>
     <script type="text/javascript">
@@ -49,7 +49,7 @@
 
         <ul>
             <li class="hbox">
-                <a href="default.html">Home</a>
+                <a href="../">Home</a>
                 <span class="spacer boxFlex"></span>
                 <span class="icon home"></span>
             </li>
@@ -183,134 +183,104 @@
 
     <div id="content">
 <div id="directory" class="section">
-    <h1>How to get started with RequireJS</h1>
+<h1>CommonJS Notes</h1>
 
-    <ul class="index mono">
-        <li class="hbox">
-            <a href="#get">Get RequireJS</a><span class="spacer boxFlex"></span><span class="sect">&sect; 1</span>
-        </li>
-        <li class="hbox">
-            <a href="#add">Add RequireJS</a><span class="spacer boxFlex"></span><span class="sect">&sect; 2</span>
-        </li>
-        <li class="hbox">
-            <a href="#optimize">Optimize</a><span class="spacer boxFlex"></span><span class="sect">&sect; 3</span>
-        </li>
-        <li class="hbox">
-            <a href="#examples">Examples</a><span class="spacer boxFlex"></span><span class="sect">&sect; 4</span>
-        </li>
-    </ul>
+<ul class="index mono">
+<li class="hbox"><a href="#intro">Introduction</a><span class="spacer boxFlex"></span><span class="sect">&sect; 1</span></li>
+<li class="hbox"><a href="#manualconversion">Manual Conversion</a><span class="spacer boxFlex"></span><span class="sect">&sect; 2</span></li>
+<li class="hbox"><a href="#autoconversion">Conversion Tool</a><span class="spacer boxFlex"></span><span class="sect">&sect; 3</span></li>
+<li class="hbox"><a href="#exports">Setting Exported Value</a><span class="spacer boxFlex"></span><span class="sect">&sect; 4</span></li>
+<li class="hbox"><a href="#altsyntax">Alternative Syntax</a><span class="spacer boxFlex"></span><span class="sect">&sect; 5</span></li>
+<li class="hbox"><a href="#packages">Loading Modules from CommonJS Packages</a><span class="spacer boxFlex"></span><span class="sect">&sect; 6</span></li>
+<li class="hbox"><a href="#optimize">Optimization Tool</a><span class="spacer boxFlex"></span><span class="sect">&sect; 7</span></li>
+</ul>
 
-    <span class="note">Note: If you are using jQuery, there is a <a href="jquery.html">targeted jQuery tutorial</a></span>
 </div>
 
 <div class="section">
-<h2>
-    <a name="get">Get RequireJS</a>
-    <span class="sectionMark">&sect; 1</span>
-</h2>
+<h2><a name="intro">Introduction</a><span class="sectionMark">&sect; 1</span></h2>
 
-<p>Go to the <a href="download.html">download</a> page and get the file.</p>
+<p><a href="http://www.commonjs.org/">CommonJS</a> defines <a href="http://wiki.commonjs.org/wiki/Modules/1.1.1">a module format</a>. Unfortunately, it was defined without giving browsers equal footing to other JavaScript environments. Because of that, there are CommonJS spec proposals for <a href="http://wiki.commonjs.org/wiki/Modules/Transport">Transport formats</a> and an <a href="http://wiki.commonjs.org/wiki/Modules/Async/A">asynchronous require</a>.</p>
+
+<p>RequireJS tries to keep with the spirit of CommonJS, with using string names to refer to dependencies, and to avoid modules defining global objects, but still allow coding a module format that works well natively in the browser. RequireJS implements the <a href="http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition">Asynchronous Module Definition</a> (formerly Transport/C) proposal.</p>
+
+<p>If you have modules that are in the traditional CommonJS module format, then you can easily convert them to work with RequireJS. Not all modules will convert cleanly to the new format. Types of modules that may not convert well:</p>
+
+<ul>
+    <li>Modules that use conditional code to do a require call, like if(someCondition) require('a1') else require('a2');</li>
+    <li>Some types of circular dependencies.</li>
 </div>
 
 <div class="section">
-<h2>
-    <a name="add">Add RequireJS</a>
-    <span class="sectionMark">&sect; 2</span>
-</h2>
+<h2><a name="manualconversion">Manual Conversion</a><span class="sectionMark">&sect; 2</span></h2>
 
-<span class="note">Note: For jQuery-specific advice, see the <a href="jquery.html">jQuery integration page</a></span>
+<p>If you just have a few modules to convert, then all you need to do is wrap the module in this code:</p>
 
-<p>This setup assumes you keep all your JavaScript files in a "scripts" directory in your project. For example, if you have a project that has a project.html page, with some scripts, the directory layout might look like so:</p>
-
-<ul>
-    <li>project-directory/
-    <ul>
-        <li>project.html</li>
-        <li>scripts/
-        <ul>
-            <li>main.js</li>
-            <li>helper/
-            <ul>
-                <li>util.js</li>
-            </ul></li>
-        </ul></li>
-    </ul></li>
-</ul>
-
-<p>Add require.js to the scripts directory, so it looks like so:</p>
-
-<ul>
-    <li>project-directory/
-    <ul>
-        <li>project.html</li>
-        <li>scripts/
-        <ul>
-            <li>main.js</li>
-            <li>require.js</li>
-            <li>helper/
-            <ul>
-                <li>util.js</li>
-            </ul></li>
-        </ul></li>
-    </ul></li>
-</ul>
-
-<p>To take full advantage of the optimization tool, it is suggested that you keep all inline script out of the HTML, and only reference require.js with a requirejs call like so to load your script:</p>
-
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;My Sample Project&lt;/title&gt;
-        &lt;!-- data-main attribute tells require.js to load
-             scripts/main.js after require.js loads. --&gt;
-        &lt;script data-main="scripts/main" src="scripts/require.js"&gt;&lt;/script&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;h1&gt;My Sample Project&lt;/h1&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-
-<p>You could also place the script tag end of the &lt;body&gt; section if you do not want the loading of the require.js script to block rendering. For browsers that support it, you could also add an <a href="https://developer.mozilla.org/en/docs/Web/HTML/Element/script#Attributes">async attribute</a> to the script tag.</p>
-
-<p>Inside of main.js, you can use requirejs() to load any other scripts you need to run. This ensures a single entry point, since <a href="api.html#data-main">the data-main script you specify is loaded asynchronously</a>.</p>
-
-<pre><code>requirejs(["helper/util"], function(util) {
-    //This function is called when scripts/helper/util.js is loaded.
-    //If util.js calls define(), then this function is not fired until
-    //util's dependencies have loaded, and the util argument will hold
-    //the module value for "helper/util".
+<pre><code>define(function(require, exports, module) {
+    //Put traditional CommonJS module content here
 });
 </code></pre>
 
-<p>That will load the helper/util.js script. To get full advantage of RequireJS,
-see the <a href="api.html">API docs</a> to learn more about defining and using
-modules.</p>
+<p><strong>IMPORTANT</strong>: The function arguments should always be listed as <strong>require, exports, module</strong>, with those exact names and in that exact order, otherwise chaos will ensue. You can leave off exports and module from the list, but if they are needed, they need to be specified in the exact order illustrated here.</p>
+</div>
+
+<div class="section">
+<h2><a name="autoconversion">Conversion Tool</a><span class="sectionMark">&sect; 3</span></h2>
+
+<p>If you have many modules to convert, the <a href="https://github.com/requirejs/r.js">r.js project</a> has a converter tool built into the r.js file. Give it the path to the directory you want to convert and an output directory:</p>
+
+<pre><code>node r.js -convert path/to/commonjs/modules/ path/to/output
+</code></pre>
+
+<p>There are a small number of CommonJS modules do not work well as
+define()-wrapped modules. See the <a href="https://github.com/requirejs/r.js">r.js README</p> for more
+information.</p>
 
 </div>
 
 <div class="section">
-<h2>
-    <a name="optimize">Optimize</a>
-    <span class="sectionMark">&sect; 3</span>
-</h2>
+<h2><a name="exports">Setting Exported Value</a><span class="sectionMark">&sect; 4</span></h2>
 
-<p>Once you are finished doing development and want to deploy your code for your end users, you can use the <a href="optimization.html">optimizer</a> to combine the JavaScript files together and minify it. In the example above, it can combine main.js and helper/util.js into one file and minify the result.</p>
+<p>There are some CommonJS systems, mainly Node, that allow setting the exported value by assigning the exported value as module.exports. That idiom is supported by RequireJS, but there is another, easier way -- just return the value from the function passed to <strong>define</strong>:</p>
+
+<pre><code>define(function (require) {
+    var foo = require('foo');
+
+    //Define this module as exporting a function
+    return function () {
+        foo.doSomething();
+    };
+});
+</code></pre>
+
+<p>With this approach, then you normally do not need the exports and module function arguments, so you can leave them off the module definition.</p>
 </div>
 
 <div class="section">
-<h2>
-    <a name="examples">Examples</a>
-    <span class="sectionMark">&sect; 4</span>
-</h2>
+<h2><a name="altsyntax">Alternative Syntax</a><span class="sectionMark">&sect; 5</span></h2>
 
-<p>If you want a starting project to use to try out RequireJS, here are some options:</p>
+<p>Instead of using require() to get dependencies inside the function passed to define(), you can also specify them via a dependency array argument to define(). The order of the names in the dependency array match the order of arguments passed to the definition function passed to define(). So the above example that uses the module <strong>foo</strong>:</p>
 
-<ul>
-    <li><a href="https://github.com/volojs/create-template">Simple one page app</a></li>
-    <li><a href="https://github.com/requirejs/example-multipage">Multipage app</a></li>
-    <li><a href="https://github.com/requirejs/example-multipage-shim">Multipage app with shim config</a></li>
-</ul>
+<pre><code>define(['foo'], function (foo) {
+    return function () {
+        foo.doSomething();
+    };
+});
+</code></pre>
+
+<p>See the <a href="api.html">API docs</a> for more information on that syntax.</p>
+</div>
+
+<div class="section">
+<h2><a name="packages">Loading Modules from CommonJS Packages</a><span class="sectionMark">&sect; 6</span></h2>
+
+<p>Modules in CommonJS packages can be loaded by RequireJS by setting up the RequireJS configuration to know about the location and package attributes. See the <a href="api.html#packages">packages API section</a> for more information.</p>
+</div>
+
+<div class="section">
+<h2><a name="optimize">Optimization Tool</a><span class="sectionMark">&sect; 7</span></h2>
+
+<p>RequireJS has an optimization tool that can combine module definitions together into optimized bundles for browser delivery. It works as a command-line tool that you use as part of code deployment. See the <a href="optimization.html">optimization docs</a> for more information.</p>
 </div>
     </div>
     <div id="footer" class="mono">

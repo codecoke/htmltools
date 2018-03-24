@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CommonJS Notes</title>
+    <title>FAQ: RequireJS Optimizations</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -10,7 +10,7 @@
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <link rel="stylesheet" type="text/css" href="highlight.css">
 
-    <script type="text/javascript" src="../../../core/lib/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./lib/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="init.js"></script>
     <script src="dojo.xd.js"></script>
     <script type="text/javascript">
@@ -183,104 +183,58 @@
 
     <div id="content">
 <div id="directory" class="section">
-<h1>CommonJS Notes</h1>
-
+<h1>FAQ: RequireJS Optimizations</h1>
 <ul class="index mono">
-<li class="hbox"><a href="#intro">Introduction</a><span class="spacer boxFlex"></span><span class="sect">&sect; 1</span></li>
-<li class="hbox"><a href="#manualconversion">Manual Conversion</a><span class="spacer boxFlex"></span><span class="sect">&sect; 2</span></li>
-<li class="hbox"><a href="#autoconversion">Conversion Tool</a><span class="spacer boxFlex"></span><span class="sect">&sect; 3</span></li>
-<li class="hbox"><a href="#exports">Setting Exported Value</a><span class="spacer boxFlex"></span><span class="sect">&sect; 4</span></li>
-<li class="hbox"><a href="#altsyntax">Alternative Syntax</a><span class="spacer boxFlex"></span><span class="sect">&sect; 5</span></li>
-<li class="hbox"><a href="#packages">Loading Modules from CommonJS Packages</a><span class="spacer boxFlex"></span><span class="sect">&sect; 6</span></li>
-<li class="hbox"><a href="#optimize">Optimization Tool</a><span class="spacer boxFlex"></span><span class="sect">&sect; 7</span></li>
+<li class="hbox"><a href="#usage">How do I use the Optimization Tool?</a><span class="spacer boxFlex"></span><span class="sect">&sect; 1</span></li>
+<li class="hbox"><a href="#wrap">How can I provide a library to others that does not depend on RequireJS?</a><span class="spacer boxFlex"></span><span class="sect">&sect; 2</span></li>
+<li class="hbox"><a href="#namespace">How can I namespace my code to play well in other people's pages?</a><span class="spacer boxFlex"></span><span class="sect">&sect; 3</span></li>
 </ul>
-
 </div>
 
 <div class="section">
-<h2><a name="intro">Introduction</a><span class="sectionMark">&sect; 1</span></h2>
+<h2><a name="usage">How do I use the Optimization Tool?</a><span class="sectionMark">&sect; 1</span></h2>
 
-<p><a href="http://www.commonjs.org/">CommonJS</a> defines <a href="http://wiki.commonjs.org/wiki/Modules/1.1.1">a module format</a>. Unfortunately, it was defined without giving browsers equal footing to other JavaScript environments. Because of that, there are CommonJS spec proposals for <a href="http://wiki.commonjs.org/wiki/Modules/Transport">Transport formats</a> and an <a href="http://wiki.commonjs.org/wiki/Modules/Async/A">asynchronous require</a>.</p>
+<p>See the <a href="optimization.html">general optimization page</a> for basic set-up. Also see the <a href="jquery.html">jQuery doc page</a> for a good way to set up your project, even if you are not using jQuery.</p>
+</div>
 
-<p>RequireJS tries to keep with the spirit of CommonJS, with using string names to refer to dependencies, and to avoid modules defining global objects, but still allow coding a module format that works well natively in the browser. RequireJS implements the <a href="http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition">Asynchronous Module Definition</a> (formerly Transport/C) proposal.</p>
+<div class="section">
+<h2><a name="wrap">How can I provide a library to others that does not depend on RequireJS?</a><span class="sectionMark">&sect; 2</span></h2>
 
-<p>If you have modules that are in the traditional CommonJS module format, then you can easily convert them to work with RequireJS. Not all modules will convert cleanly to the new format. Types of modules that may not convert well:</p>
+<p>If you are building a library for use on web pages that may not use RequireJS or an AMD loader, you can use the optimizer to combine
+all your modules into one file, then wrap them in a function and use an AMD API shim. This allows you to ship code that does not ship with all
+of RequireJS, and allows you to export any kind of API that works on a plain web page without an AMD loader.</p>
+
+<p><a href="https://github.com/requirejs/almond">almond</a> is an AMD API shim that is very small, so it can be used in place of require.js
+when all of your modules are built into one file using the RequireJS optimizer. The
+<a href="https://github.com/requirejs/r.js/blob/master/build/example.build.js#L464">wrap</a> build config option will put a function
+wrapper around the code, or you can provide your own wrapper if you need to do extra logic.</p>
+
+<p>See the almond project for details on how to build with the API shim and with wrap.</p>
+
+<p>If you need to dynamically load code after a build, then using almond+wrap will not be sufficient as almond cannot dynamically
+load code. Instead, you may want to namespace your use of require/define. See next section.</p>
+</div>
+
+<div class="section">
+<h2><a name="namespace">How can I namespace my code to play well in other people's pages?</a><span class="sectionMark">&sect; 3</span></h2>
+
+<p>If you want to provide your code to web sites that may not use an AMD loader, and you need to dynamically load code,
+doing a simple <a href="#wrap">one file build with a wrapper</a> is not enough. You also may want isolate your loading needs from
+the page's AMD loader.</p>
+
+<p>There is a <a href="https://github.com/requirejs/r.js/blob/master/build/example.build.js#L296">namespace</a> build option that
+does the following:</p>
 
 <ul>
-    <li>Modules that use conditional code to do a require call, like if(someCondition) require('a1') else require('a2');</li>
-    <li>Some types of circular dependencies.</li>
-</div>
+    <li>Renames requirejs, require and define uses to have "namespace." in front of them.</li>
+    <li>If the file does an existence check for define, in the following form <code>typeof define === 'function' && define.amd</code>,
+    then it will prefix the define references with "namespace.".</li>
+    <li>If require.js is included in the built file, it will make sure it exposes the "namespace." versions of the API.</li>
+</ul>
 
-<div class="section">
-<h2><a name="manualconversion">Manual Conversion</a><span class="sectionMark">&sect; 2</span></h2>
+<p>Do not code your source with namespace.require()/namespace.define() calls, but rather use require()/define() as you
+normally would, then use the optimizer to do the renaming.</p>
 
-<p>If you just have a few modules to convert, then all you need to do is wrap the module in this code:</p>
-
-<pre><code>define(function(require, exports, module) {
-    //Put traditional CommonJS module content here
-});
-</code></pre>
-
-<p><strong>IMPORTANT</strong>: The function arguments should always be listed as <strong>require, exports, module</strong>, with those exact names and in that exact order, otherwise chaos will ensue. You can leave off exports and module from the list, but if they are needed, they need to be specified in the exact order illustrated here.</p>
-</div>
-
-<div class="section">
-<h2><a name="autoconversion">Conversion Tool</a><span class="sectionMark">&sect; 3</span></h2>
-
-<p>If you have many modules to convert, the <a href="https://github.com/requirejs/r.js">r.js project</a> has a converter tool built into the r.js file. Give it the path to the directory you want to convert and an output directory:</p>
-
-<pre><code>node r.js -convert path/to/commonjs/modules/ path/to/output
-</code></pre>
-
-<p>There are a small number of CommonJS modules do not work well as
-define()-wrapped modules. See the <a href="https://github.com/requirejs/r.js">r.js README</p> for more
-information.</p>
-
-</div>
-
-<div class="section">
-<h2><a name="exports">Setting Exported Value</a><span class="sectionMark">&sect; 4</span></h2>
-
-<p>There are some CommonJS systems, mainly Node, that allow setting the exported value by assigning the exported value as module.exports. That idiom is supported by RequireJS, but there is another, easier way -- just return the value from the function passed to <strong>define</strong>:</p>
-
-<pre><code>define(function (require) {
-    var foo = require('foo');
-
-    //Define this module as exporting a function
-    return function () {
-        foo.doSomething();
-    };
-});
-</code></pre>
-
-<p>With this approach, then you normally do not need the exports and module function arguments, so you can leave them off the module definition.</p>
-</div>
-
-<div class="section">
-<h2><a name="altsyntax">Alternative Syntax</a><span class="sectionMark">&sect; 5</span></h2>
-
-<p>Instead of using require() to get dependencies inside the function passed to define(), you can also specify them via a dependency array argument to define(). The order of the names in the dependency array match the order of arguments passed to the definition function passed to define(). So the above example that uses the module <strong>foo</strong>:</p>
-
-<pre><code>define(['foo'], function (foo) {
-    return function () {
-        foo.doSomething();
-    };
-});
-</code></pre>
-
-<p>See the <a href="api.html">API docs</a> for more information on that syntax.</p>
-</div>
-
-<div class="section">
-<h2><a name="packages">Loading Modules from CommonJS Packages</a><span class="sectionMark">&sect; 6</span></h2>
-
-<p>Modules in CommonJS packages can be loaded by RequireJS by setting up the RequireJS configuration to know about the location and package attributes. See the <a href="api.html#packages">packages API section</a> for more information.</p>
-</div>
-
-<div class="section">
-<h2><a name="optimize">Optimization Tool</a><span class="sectionMark">&sect; 7</span></h2>
-
-<p>RequireJS has an optimization tool that can combine module definitions together into optimized bundles for browser delivery. It works as a command-line tool that you use as part of code deployment. See the <a href="optimization.html">optimization docs</a> for more information.</p>
 </div>
     </div>
     <div id="footer" class="mono">

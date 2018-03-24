@@ -10,7 +10,9 @@
 
 [zepto.1.2.0](../public/doc/zepto1.2.0.html)
 
-[git-learn](./git/git-lean-mf.md)
+[git-lean](./git/git-lean-mf.md)
+
+[reqirejs api](./requirejs/default.html)
 
 ### 版权许可
 
