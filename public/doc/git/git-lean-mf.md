@@ -38,6 +38,9 @@ git remote rm origin
 git remote add origin [url]
 3.直接修改config文件
 
+更新缓存
+git rm -r --cached public/doc
+
 git diff 是工作区和暂存区的对比
 git diff -- cached 是暂存区和分支的对比
 git diff HEAD -- readme.txt  工作区和分支的对比
