@@ -6,9 +6,9 @@
 
 [es6-ruanyifeng](../public/doc/es6-ruanyifeng/)
 
-[jquery-api](../public/doc/jquery/index.html)
+[jquery-api](./jquery/index.html)
 
-[zepto.1.2.0](../public/doc/zepto1.2.0.html)
+[zepto.1.2.0](./zepto1.2.0.html)
 
 [git-lean](./git/git-lean-mf.md)
 
