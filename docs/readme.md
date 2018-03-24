@@ -4,11 +4,9 @@
 
 [public/doc](../public/doc/)
 
-[es6-ruanyifeng](../public/doc/es6-ruanyifeng/)
+[es6-ruanyifeng](./doc/es6-ruanyifeng/sidebar.md)
 
 [jquery-api](./jquery/index.html)
-
-[zepto.1.2.0](./zepto1.2.0.html)
 
 [git-lean](./git/git-lean-mf.md)
 
