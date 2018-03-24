@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>editor demo 2</title>
+    <link href="../src/css/codecokePageMain.1.css" rel="stylesheet" type="text/css" media="screen" />
+    <style type="text/css">
+        /* Smartphones (portrait and landscape) ----------- */
+        @media only screen
+        and (min-device-width : 320px)
+        and (max-device-width : 480px) {
+        /* Styles */
+        }
+        /* Smartphones (landscape) ----------- */
+        @media only screen
+        and (min-width : 321px) {
+        /* Styles */
+            div.codecokePageMain{
+                width: 80%;
+                padding: 0.5em;
+                border:1px solid blue;
+            }
+        }
+        /* Smartphones (portrait) ----------- */
+        @media only screen
+        and (max-width : 320px) {
+        /* Styles */
+            div.codecokePageMain{
+                width: 90%;
+                border:1px solid green;
+            }
+        }
+        /** iPad **/
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {}
+        /** iPhone **/
+        @media only screen and (min-width: 320px) and (max-width: 767px) {}
+
+
+        html {
+    font-size : 20px;
+}
+@media only screen and (min-width: 401px){
+    html {
+        font-size: 25px !important;
+    }
+}
+@media only screen and (min-width: 428px){
+    html {
+        font-size: 26.75px !important;
+    }
+}
+@media only screen and (min-width: 481px){
+    html {
+        font-size: 30px !important; 
+    }
+}
+@media only screen and (min-width: 569px){
+    html {
+        font-size: 35px !important; 
+    }
+}
+@media only screen and (min-width: 641px){
+    html {
+        font-size: 40px !important; 
+    }
+}
+    
+    </style>
+</head>
+<body>
+<div id="editor-demo-1" class="codecokePageMain">
+<header>
+    <nav>nav1 nav2</nav>
+</header>
+<article>
+    <h1>editor demo 1</h1>
+    <div id="myeditor">
+        #myeditor txt1
+        hi!
+    </div><!-- div#myeditor_End -->
+    <div id="div2">#div2 txt2</div>
+</article>
+<footer>footer</footer>
+</div><!-- div#editor-demo-1_End -->
+<script data-main="../src/editor-demo-2" src="../lib/third-party/require.js"></script>
+</body>
+<!--
+    img { width: auto; max-width: 100%; }
+
+
+
+    @media all and (min-width: 45em) {
+        body:after {
+            content: 'widescreen';
+            display: none;
+        }
+    }
+    var size = window.getComputedStyle(document.body,':after').getPropertyValue('content');
+     if (size.indexOf("widescreen") !=-1)
+    if (size == 'widescreen') {
+    // Load some more content.
+    }
+
+    .vw_vh_img {
+    max-width: 90vw;
+    max-height: 90vh;
+    }
+
+    <link rel="stylesheet" type="text/css"
+media="screen and (min-width: 400px) and (max-device-width: 600px)"
+href="smallScreen.css" />
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) { ... }
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { ... }
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) { ... }
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) { ... }
+-->
+</html>

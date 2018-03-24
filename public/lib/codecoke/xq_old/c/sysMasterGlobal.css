@@ -1,0 +1,102 @@
+@import url('/codecoke_com/agent/c/global.css');
+
+html {
+}
+
+body {
+	background-color:#eee;
+	
+}
+
+#iWallpaper {
+	margin:10px auto;
+	width:768px;
+	border:1px solid #bababa;
+	background-color:#f9f9f4
+}
+#header {
+	clear:both;
+	padding-top:10px;
+	border-bottom:1px solid #948b65;
+}
+#topNav {
+	height:22px;
+	list-style:none;
+}
+#topNav li {
+	float:left;
+	margin-right:10px;
+}
+#iCon {
+	clear:both;
+	background-color:#efefde;
+}
+	
+#iConSub {
+	float:right;
+	width:180px;
+	min-height:560px;
+	background-color:#f9f9f4;
+}
+#iConSub dt {
+	--background-color:#948b65;
+	text-align:center;
+	border-bottom:1px solid #948b65;
+	--color:#fff;
+}
+#iConSub dd {
+	list-style:none;
+	padding:3px 0 0 10px;
+}
+#iCon .mrr180 {
+	margin-right:181px;
+}
+#iConMax {
+	padding:5px 10px;
+	background-color:#fff;
+	min-height:550px;
+
+}
+
+.warning {
+	border:1px solid red;
+	padding:5px 10px;
+	background-color:#ffdfdf;
+	margin:5px 0;
+}
+
+#master_upInfo_bar {
+	text-align:center;
+	font-size:18px;
+	border:1px solid #7b0099;
+	color:#7b0099;
+	padding:5px 10px;
+	background-color:#f9ddff;
+}
+
+#iConMax form {
+	border:1px solid #bababa;
+	padding:3px 10px;
+	background-color:#efefde;
+}
+#iConMax form fieldset {
+	padding:5px;
+}
+#footer {
+	clear:both;
+	border-top:1px solid #bbb;	
+}
+#footCopyright {
+	line-height:32px;
+	height:32px;
+	font-size:18px;
+	text-align:center;
+}
+#powered {	
+	padding:0 10px;
+	color:#807857;
+}
+#powered a {
+	color:#807857;
+	font-size:11px;
+}
