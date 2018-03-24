@@ -22,6 +22,7 @@
   ,"eslintIgnore":[
     "#ignore rules"
     ,"public/doc/*"
+    ,"docs"
     ,"server/*.s.asp"
     ,"public/lib/third-party"
     ,"node_modules"

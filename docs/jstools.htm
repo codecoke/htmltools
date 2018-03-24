@@ -22,14 +22,14 @@ function jsminclear(){$('comment').value=$('input').value=$('output').value='';$
 
 
 var _codecokeGuid=function(_o) {
-			var _str ='',_sp =(_o && 35<_o)? '-' :'';
-			for(var _i = 0; _i < 31; _i++) {
-				_str +=''+ Math.floor(Math.random() * 0xF).toString(0xF) + (_i == 6 || _i == 10 || _i == 14 || _i == 18 ? _sp :'');
-			}
-			return (_sp && 37<_o)
-				? '{'+['A','B','C','D','E','F','G','H','J','K'][Math.floor(Math.random() *10)] +_str.toUpperCase() +'}'
-				: ['A','B','C','D','E','F','G','H','J','K'][Math.floor(Math.random() *10)]+''+ _str.toUpperCase()
-				;
+  var _str ='',_sp =(_o && 35<_o)? '-' :'';
+  for(var _i = 0; _i < 31; _i++) {
+    _str +=''+ Math.floor(Math.random() * 0xF).toString(0xF) + (_i == 6 || _i == 10 || _i == 14 || _i == 18 ? _sp :'');
+  }
+  return (_sp && 37<_o)
+  	? '{'+['A','B','C','D','E','F','G','H','J','K'][Math.floor(Math.random() *10)] +_str.toUpperCase() +'}'
+  	: ['A','B','C','D','E','F','G','H','J','K'][Math.floor(Math.random() *10)]+''+ _str.toUpperCase()
+  	;
 };
 
 var _s62='Az0yBx1wCv2uD3rEt4sFqGpHoInJmKiLlMkNjOgPhQfRdSbcTaU9V8W7X6Y5Ze'
