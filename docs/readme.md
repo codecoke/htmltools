@@ -14,6 +14,8 @@
 
 [reqirejs api](./requirejs/default.html)
 
+[zepto 1.2.0 api](./zepto/zepto1.2.0.html)
+
 ### 版权许可
 
 - 采用“保持署名—非商用”创意共享4.0许可证。
