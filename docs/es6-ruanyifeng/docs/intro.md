@@ -75,7 +75,7 @@ ES6 从开始制定到最后发布，整整用了 15 年。
 Node 是 JavaScript 的服务器运行环境（runtime）。它对 ES6 的支持度更高。除了那些默认打开的功能，还有一些语法功能已经实现了，但是默认没有打开。使用下面的命令，可以查看 Node 已经实现的 ES6 特性。
 
 ```bash
-$ node --v8-options | grep harmony
+\$ node --v8-options | grep harmony
 ```
 
 上面命令的输出结果，会因为版本的不同而有所不同。
@@ -83,8 +83,8 @@ $ node --v8-options | grep harmony
 我写了一个工具 [ES-Checker](https://github.com/ruanyf/es-checker)，用来检查各种运行环境对 ES6 的支持情况。访问[ruanyf.github.io/es-checker](http://ruanyf.github.io/es-checker)，可以看到您的浏览器支持 ES6 的程度。运行下面的命令，可以查看你正在使用的 Node 环境对 ES6 的支持程度。
 
 ```bash
-$ npm install -g es-checker
-$ es-checker
+\$ npm install -g es-checker
+\$ es-checker
 
 =========================================
 Passes 24 feature Dectations
@@ -125,16 +125,16 @@ Babel 的配置文件是`.babelrc`，存放在项目的根目录下。使用 Bab
 
 ```bash
 # 最新转码规则
-$ npm install --save-dev babel-preset-latest
+\$ npm install --save-dev babel-preset-latest
 
 # react 转码规则
-$ npm install --save-dev babel-preset-react
+\$ npm install --save-dev babel-preset-react
 
 # 不同阶段语法提案的转码规则（共有4个阶段），选装一个
-$ npm install --save-dev babel-preset-stage-0
-$ npm install --save-dev babel-preset-stage-1
-$ npm install --save-dev babel-preset-stage-2
-$ npm install --save-dev babel-preset-stage-3
+\$ npm install --save-dev babel-preset-stage-0
+\$ npm install --save-dev babel-preset-stage-1
+\$ npm install --save-dev babel-preset-stage-2
+\$ npm install --save-dev babel-preset-stage-3
 ```
 
 然后，将这些规则加入`.babelrc`。
@@ -159,29 +159,29 @@ Babel 提供`babel-cli`工具，用于命令行转码。
 它的安装命令如下。
 
 ```bash
-$ npm install --global babel-cli
+\$ npm install --global babel-cli
 ```
 
 基本用法如下。
 
 ```bash
 # 转码结果输出到标准输出
-$ babel example.js
+\$ babel example.js
 
 # 转码结果写入一个文件
 # --out-file 或 -o 参数指定输出文件
-$ babel example.js --out-file compiled.js
+\$ babel example.js --out-file compiled.js
 # 或者
-$ babel example.js -o compiled.js
+\$ babel example.js -o compiled.js
 
 # 整个目录转码
 # --out-dir 或 -d 参数指定输出目录
-$ babel src --out-dir lib
+\$ babel src --out-dir lib
 # 或者
-$ babel src -d lib
+\$ babel src -d lib
 
 # -s 参数生成source map文件
-$ babel src -d lib -s
+\$ babel src -d lib -s
 ```
 
 上面代码是在全局环境下，进行 Babel 转码。这意味着，如果项目要运行，全局环境必须有 Babel，也就是说项目产生了对环境的依赖。另一方面，这样做也无法支持不同项目使用不同版本的 Babel。
@@ -190,7 +190,7 @@ $ babel src -d lib -s
 
 ```bash
 # 安装
-$ npm install --save-dev babel-cli
+\$ npm install --save-dev babel-cli
 ```
 
 然后，改写`package.json`。
@@ -210,7 +210,7 @@ $ npm install --save-dev babel-cli
 转码的时候，就执行下面的命令。
 
 ```javascript
-$ npm run build
+\$ npm run build
 ```
 
 ### babel-node
@@ -220,7 +220,7 @@ $ npm run build
 它不用单独安装，而是随`babel-cli`一起安装。然后，执行`babel-node`就进入 REPL 环境。
 
 ```bash
-$ babel-node
+\$ babel-node
 > (x => x * 2)(1)
 2
 ```
@@ -228,14 +228,14 @@ $ babel-node
 `babel-node`命令可以直接运行 ES6 脚本。将上面的代码放入脚本文件`es6.js`，然后直接运行。
 
 ```bash
-$ babel-node es6.js
+\$ babel-node es6.js
 2
 ```
 
 `babel-node`也可以安装在项目中。
 
 ```bash
-$ npm install --save-dev babel-cli
+\$ npm install --save-dev babel-cli
 ```
 
 然后，改写`package.json`。
@@ -255,7 +255,7 @@ $ npm install --save-dev babel-cli
 `babel-register`模块改写`require`命令，为它加上一个钩子。此后，每当使用`require`加载`.js`、`.jsx`、`.es`和`.es6`后缀名的文件，就会先用 Babel 进行转码。
 
 ```bash
-$ npm install --save-dev babel-register
+\$ npm install --save-dev babel-register
 ```
 
 使用时，必须首先加载`babel-register`。
@@ -276,7 +276,7 @@ require("./index.js");
 安装命令如下。
 
 ```bash
-$ npm install babel-core --save
+\$ npm install babel-core --save
 ```
 
 然后，在项目中就可以调用`babel-core`。
@@ -327,7 +327,7 @@ Babel 默认只转换新的 JavaScript 句法（syntax），而不转换新的 A
 安装命令如下。
 
 ```bash
-$ npm install --save babel-polyfill
+\$ npm install --save babel-polyfill
 ```
 
 然后，在脚本头部，加入如下一行代码。
@@ -356,13 +356,13 @@ Babel 也可以用于浏览器环境。但是，从 Babel 6.0 开始，不再直
 下面是如何将代码打包成浏览器可以使用的脚本，以`Babel`配合`Browserify`为例。首先，安装`babelify`模块。
 
 ```bash
-$ npm install --save-dev babelify babel-preset-latest
+\$ npm install --save-dev babelify babel-preset-latest
 ```
 
 然后，再用命令行转换 ES6 脚本。
 
 ```bash
-$  browserify script.js -o bundle.js \
+\$  browserify script.js -o bundle.js \
   -t [ babelify --presets [ latest ] ]
 ```
 
@@ -389,7 +389,7 @@ Babel 提供一个[REPL 在线编译器](https://babeljs.io/repl/)，可以在�
 ESLint 用于静态检查代码的语法和风格，安装命令如下。
 
 ```bash
-$ npm install --save-dev eslint babel-eslint
+\$ npm install --save-dev eslint babel-eslint
 ```
 
 然后，在项目根目录下，新建一个配置文件`.eslintrc`，在其中加入`parser`字段。
@@ -497,7 +497,7 @@ Traceur 允许将 ES6 代码直接插入网页。首先，必须在网页头部�
 
 上面代码中，首先生成 Traceur 的全局对象`window.System`，然后`System.import`方法可以用来加载 ES6。加载的时候，需要传入一个配置对象`metadata`，该对象的`traceurOptions`属性可以配置支持 ES6 功能。如果设为`experimental: true`，就表示除了 ES6 以外，还支持一些实验性的新功能。
 
-### 在线转换
+### 在线转换2
 
 Traceur 也提供一个[在线编译器](http://google.github.io/traceur-compiler/demo/repl.html)，可以在线将 ES6 代码转为 ES5 代码。转换后的代码，可以直接作为 ES5 代码插入网页运行。
 
@@ -508,7 +508,7 @@ Traceur 也提供一个[在线编译器](http://google.github.io/traceur-compile
 <script src="https://google.github.io/traceur-compiler/bin/BrowserSystem.js"></script>
 <script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
 <script>
-$traceurRuntime.ModuleStore.getAnonymousModule(function() {
+\$traceurRuntime.ModuleStore.getAnonymousModule(function() {
   "use strict";
 
   var Calc = function Calc() {
@@ -531,7 +531,7 @@ $traceurRuntime.ModuleStore.getAnonymousModule(function() {
 作为命令行工具使用时，Traceur 是一个 Node 的模块，首先需要用 npm 安装。
 
 ```bash
-$ npm install -g traceur
+\$ npm install -g traceur
 ```
 
 安装成功后，就可以在命令行下使用 Traceur 了。
@@ -539,7 +539,7 @@ $ npm install -g traceur
 Traceur 直接运行 ES6 脚本文件，会在标准输出显示运行结果，以前面的`calc.js`为例。
 
 ```bash
-$ traceur calc.js
+\$ traceur calc.js
 Calc constructor
 9
 ```
@@ -547,7 +547,7 @@ Calc constructor
 如果要将 ES6 脚本转为 ES5 保存，要采用下面的写法。
 
 ```bash
-$ traceur --script calc.es6.js --out calc.es5.js
+\$ traceur --script calc.es6.js --out calc.es5.js
 ```
 
 上面代码的`--script`选项表示指定输入文件，`--out`选项表示指定输出文件。
@@ -555,7 +555,7 @@ $ traceur --script calc.es6.js --out calc.es5.js
 为了防止有些特性编译不成功，最好加上`--experimental`选项。
 
 ```bash
-$ traceur --script calc.es6.js --out calc.es5.js --experimental
+traceur --script calc.es6.js --out calc.es5.js --experimental
 ```
 
 命令行下转换生成的文件，就可以直接放到浏览器中运行。

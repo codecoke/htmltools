@@ -1,18 +1,30 @@
 # codecoke html tools
 
-## git home
+## git home[codecoke git docs][codecoke doc]
 
-[public/doc](../public/doc/)
+[codecoke logo]: ./codecokelogo.gif "http://git.codecoke.com"
+[codecoke doc]: https://github.com/codecoke/htmltools/tree/master/docs
+[codecoke git]: https://github.com/codecoke/htmltools/
+[codecoke http]: http://git.codecoke.com/
 
-[es6-ruanyifeng](./doc/es6-ruanyifeng/sidebar.md)
 
-[jquery-api](./jquery/index.html)
 
-[git-lean](./git/git-lean-mf.md)
+![git.codecoke.com][codecoke logo]
 
-[reqirejs api](./requirejs/default.html)
+[home <<][codecoke http]
 
-[zepto 1.2.0 api](./zepto/zepto1.2.0.html)
+### codeing
+
+[markdown 语法](./markdown/basics-tw.md)  | [git-lean](./git/git-lean-mf.md)
+
+### emascript
+
+[jquery-api](./jquery/index.html) | [zepto 1.2.0 api](./zepto/zepto1.2.0.html) | [reqirejs api](./requirejs/default.html) | [es6-learn](./es6-ruanyifeng/sidebar.md)
+
+### severs
+
+[koa2-note](./koa/koa2-note-master/README.md)
+
 
 ### 版权许可
 

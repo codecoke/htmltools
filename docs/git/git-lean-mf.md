@@ -1,14 +1,28 @@
 # git lean mf
 
-## git  init
-## git add read.txt
-## git status
-## git commit -m "edit redame.txt"
-## git log --pretty=oneline
-## git --hard HEAD^^
-## git --hard HEAD 6d2007
-## git reflog
-## git diff HEAD -- readme.txt #查看工作区文件变化
+
+## 最佳实践
+
+![png](./git_best_flow.png "git 最佳实践")
+
+<!-- ![alt text](./git_best_flow.png "Title") -->
+
+---
+
+```shell
+git  init
+
+git add read.txt
+git status
+git commit -m "edit redame.txt"
+git log --pretty=oneline
+git --hard HEAD^^
+git --hard HEAD 6d2007
+git reflog
+git diff HEAD -- readme.txt #查看工作区文件变化
+
+```
+
 
 $ ssh -T git@github.com
 重写了一次
@@ -20,7 +34,11 @@ https://github.com/codecoke/htmltools.git
 
 git remote add origin git@github.com:codecoke/htmltools.git
 
-就是在上面（Create a new repo）创建远程仓库的时候，如果你勾选了Initialize this repository with a README（就是创建仓库的时候自动给你创建一个README文件），那么到了你将本地仓库内容推送到远程仓库（git push -u origin master）的时候就会报一个failed to push some refs to  git@github.com:michaelliao/learngit.git。 这是由于你新创建的那个仓库里面的README文件不在本地仓库目录中，这时我们可以通过以下命令将内容合并：
+就是在上面（Create a new repo）创建远程仓库的时候，如果你勾选了Initialize this repository with a README（就是创建仓库的时候自动给你创建一个README文件），那么到了你将本地仓库内容推送到远程仓库（git push -u origin master）的时候就会报一个 
+
+`failed to push some refs to  git@github.com:michaelliao/learngit.git`。 
+
+这是由于你新创建的那个仓库里面的README文件不在本地仓库目录中，这时我们可以通过以下命令将内容合并：
 $ git pull --rebase origin master  这时候就不会报错了。
 
 
@@ -29,8 +47,8 @@ $ git pull --rebase origin master  这时候就不会报错了。
 
 方法有三种：
 1.修改命令
-git remote set-url origin [url]
-例如：git remote set-url origin gitlab@gitlab.chumob.com:php/hasoffer.git
+git remote set-url origin `[url]`
+例如：`git remote set-url origin gitlab@gitlab.chumob.com:php/hasoffer.git`
 
 2.先删后加
 
@@ -64,4 +82,4 @@ git pull
 
 ### 自定义命令
 
-$ git config --global alias.st status
+$ git config --global `alias.st` status
