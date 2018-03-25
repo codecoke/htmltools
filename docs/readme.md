@@ -1,4 +1,4 @@
-# codecoke html tools
+# git.codecoke.com
 
 [codecoke logo]: ./codecokelogo.gif "http://git.codecoke.com"
 [codecoke doc]: https://github.com/codecoke/htmltools/tree/master/docs
@@ -12,7 +12,7 @@
 [home <<][codecoke http]   [git docs <<][codecoke doc]
 
 
-|  |  |  |  |  |
+| git codecoke | docs |  |  |  |
 |- |- |- |-:|-:|
 | __emascript__ |  |  |  | . |
 [jquery-api](./jquery/index.html) | [zepto 1.2.0 api](./zepto/zepto1.2.0.html) | [reqirejs api](./requirejs/default.html) | [es6-learn](./es6-ruanyifeng/sidebar.md) | [emoji unicode](./ecmascript/emoji/emoji-table.htm)
