@@ -17,7 +17,7 @@
 | __emascript__ |  |  |  | . |
 [jquery-api](./jquery/index.html) | [zepto 1.2.0 api](./zepto/zepto1.2.0.html) | [reqirejs api](./requirejs/default.html) | [es6-learn](./es6-ruanyifeng/sidebar.md) | [emoji unicode](./ecmascript/emoji/emoji-table.htm)
 | __severs__ |  |  |  | . |
-|[koa2-note](./koa/koa2-note-master/README.md) |||||
+|[koa2-note](./koa/koa2-note-master/README.md) | | | | |
 | __code fun__ |  |  |  | . |
 |[markdown 语法](./markdown/basics-tw.md) | [git-lean](./git/git-lean-mf.md) ||||
 
