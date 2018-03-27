@@ -1,0 +1,19 @@
+#content p {text-indent:2em;}
+
+pre { background-color:#eee; margin:0.5em 2em;padding:10px;}
+
+pre code { background-color:#fff;padding:1em;margin:0;display:block; line-height:1.5;}
+
+code { border:2px inset;font-size:medium; padding:0 5px;}
+
+.note { border:1px solid #bbb; margin:1em 2em; padding:0.5em;}
+
+.note h3 { border-bottom:3px double #bbb; margin-bottom:0.5em;}
+
+h3.break { border-bottom:2px dotted #bababa;}
+#content { padding:5px}
+#content ul,#content ol{ padding-left:2em; }
+
+#web_footer { margin-top:1em;}
+
+blockquote { border:2px solid #bababa; background-color:#eee; margin:1em 4em;padding:1em;}

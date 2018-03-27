@@ -1,0 +1,124 @@
+
+
+* { 
+/* 把所有的元素外内边距清零 */
+	
+margin: 0;
+	
+padding: 0;
+	
+}
+
+
+
+form {
+	font-size: .8em;
+	}
+
+
+input:hover {
+	background: #eee;
+	}
+
+abbr,acronym {
+	cursor: help;
+	}
+
+code {
+	color: #900;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 1em;
+	}
+
+pre {
+	width: 90%;
+	margin: 1.5em 1em;
+	padding: 1em;
+	border: 2px dotted #ccc;
+	font: 1em "Courier New",Courier,monospace;
+	white-space: normal;
+	overflow: auto;
+}
+pre:hover {
+	border: 2px solid #999;
+	}
+pre strong {
+	color: #c00;
+}
+
+pre code {
+	display: block;
+	color: black;
+	padding: .5em;
+	margin: 0;
+}
+ol.code {
+	margin: 1.5em 0;
+	}
+blockquote {
+	width: 90%;
+	margin: 1.5em 1em;
+	padding: 1em;
+	border-left: 2px dotted #ccc;
+	white-space: normal;
+	overflow: auto;
+	}
+blockquote:hover {
+	border-left: 2px solid #999;
+	}
+
+h3 {
+	padding-top: 1em;
+	font-size: 1.2em;
+	}
+h3.break {
+	margin: 1em 0 .5em 0;
+	padding: .8em 0 0 0;
+	border-top: 2px dotted #ddd;
+	}
+h4 {
+	font-size: 1em;
+	}
+
+a:hover {
+	color: #666;
+	border: none;
+	}
+
+
+
+
+	
+
+
+
+/* 开始设置内容区域  */
+
+
+#transnote {
+	margin: 1.5em 3em;
+	border: 1px solid #aaa;
+	font-size: .9em;
+	}
+#transnote h3 {
+	margin: 0;
+	padding: 0 1em;
+	background: #eee;
+	border-bottom: 1px solid #eee;
+	}
+	
+#latest {
+	width: 200px;
+	height: auto;
+	float: right;
+	margin-left: 2em;
+	border: 1px solid #eee;
+	background: #fff;
+	}
+#latest h3{
+	margin: 0;
+	padding: 0;
+	padding-left: 1em;
+	background: #eee;
+	}
+

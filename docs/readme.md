@@ -1,4 +1,3 @@
-# git.codecoke.com
 
 [codecoke logo]: ./codecokelogo.gif "http://git.codecoke.com"
 [codecoke doc]: https://github.com/codecoke/htmltools/tree/master/docs
@@ -9,7 +8,7 @@
 
 ![git.codecoke.com][codecoke logo]
 
-[home <<][codecoke http]   [git docs <<][codecoke doc]
+[git.codecoke.com][codecoke http] / [git docs][codecoke doc]
 
 
 | git codecoke | docs |  |  |  |
