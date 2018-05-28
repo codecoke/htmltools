@@ -24,7 +24,7 @@ define(['require'], function(require) {
         }
         ,'map': {
           '*': {
-              'css': 'require-css'
+            'css': 'require-css'
           }
         }
         ,'urlArgs': (id,url) => {

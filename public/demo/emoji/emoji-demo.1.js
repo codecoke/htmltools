@@ -94,7 +94,26 @@ function in_emoji_2_arr (str) {
   return rstr;
   // body
 }
+/*
+属性的赋值器（setter）和取值器（getter），事实上也是采用这种写法。
 
+```javascript
+const cart = {
+  _wheels: 4,
+
+  get wheels () {
+    return this._wheels;
+  },
+
+  set wheels (value) {
+    if (value < this._wheels) {
+      throw new Error('数值太小了！');
+    }
+    this._wheels = value;
+  }
+}
+```
+*/
 // console.log('✔️'.codePointAt().toString(16));
 console.log('\u{2714}');
 document.getElementById('t1').value = in_emoji_2_arr('🎙️ Studio Microphone\n');

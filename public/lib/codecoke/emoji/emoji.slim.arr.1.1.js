@@ -597,8 +597,21 @@ let f = [
   // ,ico = []
 ;
 
+let emoji_o ={
+  _map_ico : new Map(f)
+  ,get f (){
+    return this._f;
+  }
+  ,ico(name,group='ico'){
+    return this._map_ico.get(name);
+  }
+};
+
+
+
 export {
-  f
+  emoji_o
+  ,f
   // ,f2
   // ,s
   ,face
