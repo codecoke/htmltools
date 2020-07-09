@@ -1,0 +1,333 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title>mf2_UMEDITOR</title>
+    <style type="text/css">
+        .btn{display:inline-block;padding:4px 12px;margin-bottom:0;font-size:14px;line-height:20px;color:#333;text-align:center;text-shadow:0 1px 1px rgba(255,255,255,.75);vertical-align:middle;cursor:pointer;background-color:#f5f5f5;background-image:-moz-linear-gradient(top,#fff,#e6e6e6);background-image:-webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e6e6e6));background-image:-webkit-linear-gradient(top,#fff,#e6e6e6);background-image:-o-linear-gradient(top,#fff,#e6e6e6);background-image:linear-gradient(to bottom,#fff,#e6e6e6);background-repeat:repeat-x;border:1px solid #ccc;border-color:#e6e6e6 #e6e6e6 #bfbfbf;border-color:rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);border-bottom-color:#b3b3b3;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);-webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 1px 2px rgba(0,0,0,.05);-moz-box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 1px 2px rgba(0,0,0,.05);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 1px 2px rgba(0,0,0,.05)}.btn.active,.btn.disabled,.btn:active,.btn:focus,.btn:hover,.btn[disabled]{color:#333;background-color:#e6e6e6}.btn.active,.btn:active{background-color:#ccc}.btn:focus,.btn:hover{color:#333;text-decoration:none;background-position:0 -15px;-webkit-transition:background-position .1s linear;-moz-transition:background-position .1s linear;-o-transition:background-position .1s linear;transition:background-position .1s linear}.btn:focus{outline:thin dotted #333;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}.btn.active,.btn:active{background-image:none;outline:0;-webkit-box-shadow:inset 0 2px 4px rgba(0,0,0,.15),0 1px 2px rgba(0,0,0,.05);-moz-box-shadow:inset 0 2px 4px rgba(0,0,0,.15),0 1px 2px rgba(0,0,0,.05);box-shadow:inset 0 2px 4px rgba(0,0,0,.15),0 1px 2px rgba(0,0,0,.05)}.btn.disabled,.btn[disabled]{cursor:default;background-image:none;opacity:.65;filter:alpha(opacity=65);-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none}
+        #Outbtns button{margin: 5px 5px 0 0;}
+        #myEditorInfo {float:left;}
+        #focush2 span{float:right; border: #333 1px solid; padding:0 5px;margin-right: 15px;}
+        
+    </style>
+</head>
+<body>
+<h1>umeditor_2_mf</h1>
+插入：<input type="text" id="a1"/>
+<!--style给定宽度可以影响编辑器的最终宽度-->
+   
+<form action="#1" mothed="post" id="f1">
+     <script type="text/plain" id="myEditor" name="myEditor1" style="width:90%;height:100px;border:1px solid red;">
+        <p>这里我可以写一些输入提示！</p>
+        <p>editor by mf 2018</p> 
+    </script>
+</form>
+<textarea id="txt1"  style="width:89%;min-height:3em;">1</textarea>
+
+
+<div>
+    <p id="focush2"><span>info</span><strong>&nbsp;</strong><sup class="clear">&nbsp;</sup></p>
+    <div id="Outbtns"></div>
+</div>
+
+
+
+<script type="text/javascript" src="./public/lib/require.js"></script>
+
+<script type="text/javascript">
+
+    let _outBtnid           ='#Outbtns'
+        ,_myEditorid        ='myEditor'
+        ,_requireEditorCof  ='require-editor.config.1'
+    ;
+
+    require([_requireEditorCof+'.json.js?callback=define&pageid=11'],function (data) {
+       
+       let _data_require_cof = data.require_cof
+            ,_data_eptl_cof = data.eptl_cof
+            ,_editor_cof =  data._editor_cof
+       ;
+       
+        requirejs.config(_data_require_cof);
+        
+       
+       
+       
+       
+       
+       requirejs(['um_zh'], () =>{
+                   
+                etpl.config(_data_eptl_cof);
+                window.UMEDITOR_HOME_URL ='public/lib/umeditor/'
+                window.UMEDITOR_CONFIG = _editor_cof;
+               
+               
+               
+               // um.config
+                 let um = UM.getEditor(_myEditorid)
+                    ,el_info =$('#focush2 span')
+                    ,el_showEditorVal =$('#txt1')
+                    ,ck_count = 0
+                ;
+               
+                 um.ready(()=>{
+                   um.addListener('blur',function(){
+                       $('#focush2 strong').text('编辑器焦点：失去')
+                   });
+           
+                   um.addListener('focus',function(){
+                       $('#focush2 strong').text('编辑器焦点：获得')
+                   });
+           
+                   
+                   $(_outBtnid).append(
+                       $('<button>').on('click',()=>{
+                       let value = prompt('插入html代码', '');
+                       um.execCommand('insertHtml', value);
+                       }).text('插入给定的内容')
+                   ).append(
+                       $('<button>').on('click',()=>{
+                            um.isFocus() && el_info.text('焦点') ||  el_info.text('不焦点');
+                       }).text('是否焦点？')
+                       
+                   ).append(
+                       $('<button>').on('click',()=>{ 
+                           um.blur()
+                       }).text('放弃焦点')
+                   ).append(
+                       $('<button>').on('click',()=>{
+                               //UM.getEditor(_myEditorid).focus();
+                               um.focus();
+                       }).text('获得焦点')
+                       
+                   ).append(
+                       $('<button>').on('click',()=>{
+                               // alert(UM.getEditor(_myEditorid).getAllHtml())
+                               alert(um.getAllHtml())                    
+                       }).text('整页html')
+                       
+                   ).append(
+                       $('<button>').on('click',()=>{
+                          let arr=[];
+                           arr.push("使用editor.getContent()方法可以获得编辑器的内容");
+                           arr.push("内容为：");
+                           arr.push(UM.getEditor(_myEditorid).getContent());
+                           //arr.push(um.getContent());
+                           alert(arr.join("\n"));
+                       }).text('取编辑器内容')
+                       
+                   ).append(
+                       $('<button>').on('click',()=>{
+                              let arr=[];
+                               arr.push("使用editor.getPlainTxt()方法可以获得编辑器的带格式的纯文本内容");
+                               arr.push("内容为：");
+                               arr.push(UM.getEditor(_myEditorid).getPlainTxt());
+                               alert(arr.join('\n'))
+                       }).text('取纯文本')
+                       
+                   ).append(
+                       $('<button>').on('click',()=>{
+                               ck_count ++;
+                               //UM.getEditor(_myEditorid).setContent('欢迎使用umeditor_'+ck_count, true);
+                               um.setContent('欢迎使用editor_'+ck_count, true);
+                               
+                               el_info.text('追加成功！('+ ck_count+')')
+                       }).text('追加内容')
+                       
+                   ).append(
+                       $('<button>').on('click',()=>{
+                               ck_count = 0;
+                               UM.getEditor(_myEditorid).setContent('替换editor<br>原内容');
+                               el_info.text('替换成功！');
+                       }).text('替换内容')
+                       
+                   ).append(
+                       $('<button>').on('click',()=>{
+                           //当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容
+                           let range = UM.getEditor(_myEditorid).selection.getRange();
+                           range.select();
+                           let txt = UM.getEditor(_myEditorid).selection.getText();
+                           alert(txt)
+                       }).text('对焦后取纯文本')
+                       
+                   ).append(
+                       $('<button>').on('click',()=>{                         
+                           um.hasContents() && el_info.text('有') ||  el_info.text('没有');
+                       }).text('有内容吗？')                       
+                   ).append(
+                       $('<button>').on('click',()=>{
+                               UM.getEditor(_myEditorid).setHide()
+                       }).text('隐藏编辑器')
+                       
+                   ).append(
+                       $('<button>').on('click',()=>{
+                               UM.getEditor(_myEditorid).setShow()
+                       }).text('显示编辑器')
+                       
+                   ).append(
+                       $('<button>').on('click',()=>{
+                               UM.getEditor(_myEditorid).setHeight(300)
+                       }).text('设置高300')
+                       
+                   ).append(
+                       $('<button>').on('click',()=>{
+                               UM.getEditor(_myEditorid).setWidth('80%')
+                       }).text('设置宽80%')
+                       
+                   ).append(
+                       $('<button>').on('click',()=>{
+                             
+                        UM.getEditor(_myEditorid).setEnabled();
+                           $(_outBtnid+' button').removeAttr('disabled');
+                       }).text('可编辑')
+                       .addClass('btn_enable')
+                       
+                   ).append(
+                       $('<button>').on('click',()=>{
+                             
+                        UM.getEditor(_myEditorid).setDisabled('fullscreen');
+                           $(_outBtnid+' button').attr('disabled','disabled');
+                           $('button.btn_enable').removeAttr('disabled');
+            
+                       }).text('不可编辑')
+                       
+                   ).append(
+                       $('<button>').on('click',()=>{
+                           $(_outBtnid+' button').removeAttr('disabled');
+                           um = UM.getEditor(_myEditorid);
+                       }).text('创建编辑器')
+                       .addClass('creat_btn')
+                   ).append(
+                       $('<button>').on('click',()=>{
+                           $(_outBtnid+' button').attr('disabled','disabled');
+                           UM.getEditor(_myEditorid).destroy();
+                           $(_outBtnid+' button.creat_btn').removeAttr('disabled')
+                       }).text('删除编辑器')
+                   ).append('<hr>')
+                   .append(
+                       $('<button>').on('click',()=>{
+                           //$(_outBtnid+' button').attr('disabled','disabled');
+                           //UM.getEditor(_myEditorid).destroy();
+                           //$(_outBtnid+' button.creat_btn').removeAttr('disabled')
+                           //um.execCommand('anchor', 'anchor1');
+                           //um.execCommand('autosubmit'); //自带提交
+                           /*
+                            editor.execCommand( 'insertimage', [{
+                                src:'a/b/c.jpg',
+                                width:'100',
+                                height:'100'
+                            },{
+                                src:'a/b/d.jpg',
+                                width:'100',
+                                height:'100'
+                            }] );
+
+                            editor.execCommand( 'link', '{
+                                url:'ueditor.baidu.com',
+                                title:'ueditor',
+                                target:'_blank'
+                            }' );
+
+                           */
+                           //um.execCommand('autotypeset');
+                        //    um.execCommand( 'link',
+                        //      '{url:"ueditor.baidu.com",title:"ueditor",target:"_blank"}'
+                        //     );
+                        um.execCommand( 'music' , {
+                            width: 400,
+                            height: 95,
+                            align: "center",
+                            url: "音乐地址"
+                        })
+                           
+                       }).text('插入锚点')
+                   ).append(
+                       $('<button>').on('click',()=>{
+                            um.execCommand( 'insertimage' , {
+                                src:'http://ueditor.baidu.com/website/images/des-all.png',
+                                width:'100',
+                                height:'100'
+                            } );
+                       }).text('插图')
+                   ).append(
+                       $('<button>').on('click',()=>{
+                            um.execCommand( 'print' );;
+                       }).text('print')
+                   ).append(
+                       $('<button>').on('click',function(){
+                           um.execCommand( 'source' );
+                           $(this).text( um.queryCommandState( 'source' )==1 ?'源码':'html');
+                       }).text('源码')
+                   ).append(
+                       $('<button>').on('click',()=>{
+                            um.execCommand( 'date' );
+                       }).text('插时间')
+                   ).append(
+                       $('<button>').on('click',()=>{
+                            var videoAttr = {
+                                //视频地址
+                                url: 'http://player.youku.com/player.php/sid/XMzQzNDU0MDc2MA==/v.swf',
+                                //视频宽高值， 单位px
+                                width: 200,
+                                height: 100
+                            };
+
+                            //editor 是编辑器实例
+                            //向编辑器插入单个视频
+                            um.execCommand( 'insertvideo', videoAttr )
+                       
+                        }).text('插视频')
+                   ).append(
+                       $('<button>').on('click',()=>{
+                            um.sync();
+                            el_showEditorVal.val($('#f1 textarea').val());
+                       }).text('sync')
+                   ).append(
+                       $('<button>').on('click',()=>{
+                            um.sync('f1');
+                            let _val = $('#f1 textarea').val();
+                            el_showEditorVal.val(_val);
+                       }).text('sync#f1')
+                   ).append(
+                       $('<button>').on('click',()=>{
+                           //$(um.form).submit();
+                           $(um.form).trigger('submit');
+                       }).text('form submit')
+                   ).append(
+                       $('<button>').on('click',()=>{
+                        $(um.form).triggerHandler('submit');
+                        el_showEditorVal.val($('#f1 textarea').val());
+                       }).text('formTriggerHandler')
+                   )
+                   ;
+                   //um.read end
+              });
+   
+    })
+   
+
+
+
+ });
+
+ /*
+    editor.setDisabled(['bold','insertimage']); //禁用工具栏中除加粗和插入图片之外的所有功能
+    UE.dom.domUtils.preventDefault( evt );阻止事件默认行为
+ UE.dom.domUtils.getStyle( testNode, "background" )
+scrollToView(Node node, window win, Number offsetTop) 方法 静态  1.2.6.1
+将显示区域滚动到指定节点的位置
+
+
+//editor 是编辑器实例
+ editor.execCommand('anchor', 'anchor1');
+
+
+
+ */
+   
+
+
+</script>
+
+</body>
+</html>

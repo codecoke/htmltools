@@ -1,0 +1,268 @@
+@import url('/codecoke_cache/agent/c/siteglobalStyle.css');
+
+.ad_728x90 {
+	width:728px;
+	height:90px;
+}
+
+
+.topics-pageNav {
+	background-color:#eaeaea;
+}
+.pagesNavString {
+	float:right;
+}
+.pagesNavString strong
+,.pagesNavString a {
+	display:inline-block;
+	border:1px solid #74777f;
+	color:#74777f;
+	margin-left:4px;
+	background-color:#fff;
+	line-height:14px;
+	height:15px;
+	padding:1px 3px 1px;
+	text-decoration:none;
+}
+.pagesNavString strong {
+	border-color:#505f65;
+	background-color:#81949c;
+	color:#fff;
+}
+.pagesNavHead strong {
+	border:1px solid #505f65;
+	background-color:#81949c;
+	color:#fff;
+	font-size:14px;
+	margin-right:3px;
+	padding:0 5px;
+	font-weight:normal;
+}
+
+
+h1 {
+	padding:20px 0;
+	clear:both;
+}
+h1.ct_2 {color:#ff5900;}
+h1.ct_3 {color:#0075be;}
+h1.ct_4 { color:#66cc00;}
+h1.ct_1 {color:#7b0099;}
+
+.art_title_about {
+	padding:0 10px;
+	line-height:22px;
+	height:28px;
+	border-bottom:1px solid #bababa;
+}
+.art_title_about strong {
+	font-size:18px;
+	padding:0 10px;
+	color:#258fb8;
+}
+.art_title_about sup {
+	float:right;
+	font-size:14px;
+	line-height:14px;
+	padding:3px;
+	border-bottom:1px solid #258fb8;
+	margin-right:1px;
+	background-color:#f5f5f5;
+}
+#art_replyCount {
+	background-color:#fff;
+	border-color:#fff;
+}
+.art_title_about sup i {
+	font-style:normal;
+	float:left;
+	height:14px;
+	line-height:14px;
+	margin:0 5px 0 0;
+	
+}
+
+.art_title_about sup i.et_1 {
+	color:#d0a218;
+}
+.art_title_about sup i.et_2 {
+	color:#fff;
+	background-color:#d0a218;
+	height:12px;
+}
+.art_title_about sup i.et_3 {
+	color:#d0a218;
+}
+.art_title_about sup i.et_4 {
+	color:#fff;
+	background-color:#d0a218;
+	width:12px;
+	height:15px;
+	text-align:center;
+	font-weight:bold;
+}
+.art_title_about sup i.et_5 {
+		color:#d0a218;
+}
+.art_title_about sup i.cp_1 {
+	border:1px solid #bbb;
+	height:12px;
+	color:#66cc00;
+}
+.art_title_about sup i.at_1 {
+	color:#7b0099;
+}
+.art_title_about sup i.lt_1 {
+	color:#fff;
+	width:11px;
+	background-color:#aaa;
+	text-align:center;
+}
+.art_title_about sup i.lt_2 {
+	color:#fff;
+	padding-left:1px;
+	padding-top:1px;
+	height:12px;
+	background-color:#aaa;
+}
+.art_title_about sup i.lt_9 {
+	color:#ff5900;
+}
+
+.art_content {
+	margin-top:5px;
+}
+.art_All {	
+	background-color:#f9f9f9;
+}
+.art_author {
+	padding:0 10px;
+	border-top:1px solid #fff;
+	background-color:#f5f5f5;
+	
+}
+.art_All dt.art_author strong.author_name {
+	font-size:14px;
+}
+
+.art_All dt.art_author  a.author_face {
+	display:block;
+	width:59px;
+	height:59px;
+	float:left;	
+	margin-right:10px;
+	border:1px solid #bababa;
+	background-color:#eee;
+	--position:relative;
+	--top:-8px;
+	background-position: center;
+}
+
+.art_All dt.art_author strong.author_name a {
+	color:#0b9bad;
+	text-decoration:none;
+	border-bottom:1px dotted #0075be;
+}
+.art_All dt.art_author strong.iR {
+	color:#aaa;
+	font-size:16px;
+	font-weight:normal;
+}
+.act_content dt.art_author strong.iR {
+	margin-top:10px;
+	font-size:18px;
+	font-weight:normal;
+	color:#d0a218;
+}
+.art_body {
+	clear:left;
+	padding:5px 10px;
+	font-size:14px;
+	line-height:1.8;
+	background-color:#f9f9f9;
+}
+.art_body p{
+	text-indent:2em;
+}
+
+.art_body p+p {
+	margin-top:1em;
+}
+.art_body hr {
+	color:#eee;
+}
+.art_body a {
+	color:#000;
+}
+.art_bottom {
+	clear:left;
+	height:91px;
+}
+.art_bottom .ad_728x90 {
+	--border:1px solid #bbb;
+	margin-left:115px;
+	text-align:center;
+}
+#art_digg {
+	float:left;
+	border:1px solid #777;
+	text-align:center;
+}
+#art_digg blockquote a{
+	display:block;
+	height:65px;
+	line-height:60px;
+	width:110px;
+	font-size:22px;
+	color:#bababa;
+	
+}
+#art_digg p {
+	background-color:#bbb;
+}
+#art_digg p a
+,#art_digg p span {
+	display:inline-block;
+	margin-right:2px;
+	background-color:#999;
+	color:#fff;
+	padding:0 7px;
+}
+
+
+
+#reply_All {
+	clear:both;
+	border-top:1px solid #bbb;
+}
+#reply_All .art_All {
+	border-bottom:1px solid #bbb;
+}
+#reply_All .art_author {
+	min-height:35px;
+}
+.rep_time {
+	margin-left:10px;
+	color:#aaa;
+}
+
+#art_pages_title_info {
+	float:right;
+	padding-right:10px;
+	width:215px;
+	list-style:none;
+	line-height:22px;
+}
+#art_pages_title_info .art_pages_title a{
+	font-weight:bold;
+	color:#333;
+	display:block;
+	height:18px;
+	overflow:hidden;
+	text-decoration:none;
+	border-bottom:1px dotted #bbb;
+}
+.art_re_h1 {
+	font-size:20px;
+	color:#bababa;
+}

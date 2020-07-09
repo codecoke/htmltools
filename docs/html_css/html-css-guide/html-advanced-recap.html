@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+      <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Designer" content="莫非" />	
+<meta name="robots" content="all" />
+<link type="text/css" rel="stylesheet" href="../../style/global.css" />
+<link type="text/css" rel="stylesheet" href="css/html_css_con.css" />
+<link type="text/css" rel="stylesheet" href="css/default.css" />
+<meta name="copyright" content="CodeCoke,w_AT_CodeCoke.com" />
+<meta name="keyword" content=",HTML,XHTML,CSS,Web Standards,Web标准,网页设计,网页设计教程,网页标准,层叠样式表,级联样式表,website,web-Tech,guide,script,javascript,ajax" />
+<meta name="Description" content="Web Standards（网页标准），DIV+CSS设计网页，html指南、技术文章，推动版权意识、共享精神的发展与提高。CodeCoke"/>
+<title>标准要点 | HTML和CSS网页标准指南</title>
+
+<script type="text/javascript" src="/js/Newlink.js"></script>
+</head>
+<body>
+
+	<div id="web_head">
+	<div id="web_nav" class="li_inline">
+	<a href="#content" class="ileft" accesskey="1" title="AccessKey 0,go to content of this page"><strong>跳到内容</strong>(1)</a>
+	<a href="/" class="ileft"> Cob.com.cn</a>
+	<ul class="txt_r">
+	<li><a href="../../" accesskey="h" title="AccessKey H: go to home page">首页(H)</a></li>
+	<li><a href="../../tech/" accesskey="w" title="AccessKey W: go to channel of web Tech">教程(W)</a></li>
+	<li><a href="../../server/" accesskey="b" title="AccessKey S: go to chnnel of our business">服务(B)</a></li>
+	<li><a href="../../links/" accesskey="i" title="AccessKey I: go to channel of cool site links">酷站(I)</a></li>
+	<li><a href="../../downLoad/" accesskey="d" title="AccessKey D: go to channel of download">资源(D)</a></li>
+	<li><a href="../../log/" accesskey="l" title="AccessKey L:go to channel of blog">日志(L)</a></li>
+	<li><a href="#site_footer" accesskey="9" title="AccessKey 9: go to footer of this page">底部(9)</a></li>
+	</ul>
+	</div>
+	<h1><a href="../../">Code<span class="coc">Coke</span></a></h1>
+	<h2>标准要点</h2>
+	<div id="web_path" class="iclear">
+	<div id="web_search" class="iright"><script src="/js/g_search_from_1.js" type="text/javascript"></script></div>
+	您的位置：<a href="../../">首页</a>&gt;&gt;<a href="../../tech/">教程</a>&gt;&gt;<a href="../html-css-guide/">HTML&nbsp;标准指南</a>&gt;&gt; &gt; <a href="html-advanced-index.html">HTML高级指南</a> &gt; <a href="html-advanced-recap.html">标准要点</a><span class="iclear"></span>
+</div>
+</div><!--头部结束-->
+<div id="content"><!--内容开始-->
+<p>这个教程给那些虽然已经了解<abbr title="HyperText Markup Language">HTML</abbr>，但对经不起未来<abbr title="eXtensible HyperText Markup Language">XHTML</abbr>标准的考验，隐含在分离内容和表现后面含义还未觉醒的人们。</p>
+					<h2>分离内容和表现</h2>
+					<p>HTML从来就不是表现的手段，但从用户端结合元素来格式化文本，开发者从中找到操作布局的方法。CSS的强大，使得现在不再需要用HTML做任何表现了，而内容也可以完全从表现（CSS）中分离出来。</p>
+					<p>这样做有很多好处──通常可以<strong>压缩文件</strong>容量，有着用一个主要样式表就可控制整个网站而不是单个页面的<strong>灵活性</strong>，也可能使页面更<srong>易用</srong>，更具<srong>亲和力</srong>。</p>
+					<p>遵循这些基本原则基本上意味着你不应该在HTML内使用样式化的任何事物了。比如<code>font</code>的标签，比如<code>bgcolor</code>的属性不应该再使用。甚至在图像标签<code>img</code>内的边框属性<code>border</code>在<abbr title="eXtensible HyperText Markup Language">XHTML</abbr> 1.1中也是非法的了。别担心，过时的HTML可以样式化，CSS更可以样式化，而且可以做得更好。</p>
+					<p>不仅仅是从HTML内剥离表现，内容的结构意味着在适合的地方使用明确的HTML标签。比如，<code>h1</code>，<code>h2</code>等应用在标题上──而不仅仅是使用CSS使字体变大而已。</p>
+					<p>最佳指引就是一个可视化的浏览器上使用其默认的样式来呈现一个没有样式表（或者有样式表，但不支援样式表的文本浏览器，比如lynx——译者注）的页面。</p>
+					<p><strong>表格不应该用在布局上</strong>──表格用来表示表格式的数据（我们已经不厌其烦地说了很多次──译者注）。也许对于已经习惯传统结构的HTMLer来说，完全改变有很大的技术难度。这个方法很大程度上压缩了文件，而且，基于这些显性代码，它变得更易用，更具亲和力。</p>
+					<p>关于更多，请阅读<a href="css-advanced-index.html">CSS高级指南</a>的<a href="css-advanced-layout.html">布局</a>。</p>
+					<h2>标签</h2>
+					<p>在XHTML中所有的标签都必须<strong>小写</strong>和<strong>关闭</strong>。没有闭合标签的（如<code>br</code>和<code>img</code>）必须用英文半角正斜杠“/”在后面自关闭（如<code>&lt;br /&gt;</code>）。注意在斜杠前应该有一个英文半角空格。</p>
+					<p>标记也必须是<strong>合式</strong>的，使元素<strong>正确嵌套</strong>（比如<code>&lt;strong&gt;&lt;em&gt;this&lt;/em&gt;&lt;/strong&gt;</code>，而不是<code>&lt;strong&gt;&lt;em&gt;this&lt;/strong&gt;&lt;/em&gt;</code>）。</p>
+					<p>所有的文档都要有<code>html</code>，<code>head</code>，<code>title</code>和<code>body</code>元素。也必须从<a href="html-advanced-declarations.html">文档类型声明</a>开始。</p>
+					<p>文档主体应该从 <code>p</code>， <code>h1</code>，<code>h2</code>， <code>h3</code>，<code>h4</code>，<code>h5</code>，<code>h6</code>，<code>div</code>， <code>pre</code>，<code>address</code>，<code>ins</code>或者<code>del</code>开始。</p>
+					<h2>属性</h2>
+					<p>所有的属性必须是<strong>小写</strong>的，它们的值也要用<strong>英文半角引号括（"）</strong>起来。</p>
+					<p><strong>精简属性</strong>是不允许的（比如<code>&lt;input type="checkbox" checked /&gt;</code>）。按惯例，精简属性必须给出跟属性名称一样的值（如 <code>&lt;input type="checkbox" checked="checked" /&gt;</code>）。</p>
+					<p>名字 <code>name</code>属性不再是合法的了（除了在表单元素中），应该使用<code>id</code>来代替。</p>
+					<p>目标属性<code>target</code>不是一个合法的属性。庆幸吧，它有些癫狂。</p>
+					<p>在<code>img</code>里，<code>alt</code>属性是必须的。</p>
+					<h2>亲和力</h2>
+					<p>为残障人士制做具有亲和力网页的理由是不证而明的。不仅是人道的，而且也对老年用户和五官功能减退的用户有利（想一想，有一天我们老了，视力消退，五官不灵，怎么浏览互联网？为年老积点德，现在就考虑亲和力吧！——译者注）。亲和力不仅与有严重残障人士方便，也使大部分少量消退功能（特别是视觉）的用户更为易用。</p>
+					<p>这个问题越来越牵涉法律问题了，比如美国的“508条款”的采用，试图积极推动强制使用亲和力；在英国，所有的政府网站必须有一个指定的亲和力程度。什么时候才可以有像在建筑物上的亲和措施的立法，以便普遍用在商业网站上？（中国还不知道什么时候有这种立法呢！但不等于我们就不要关注我们设计的网页的合法性。——译者注）</p>
+					<p>如果能遵循上述的建议，你的HTML应该已经具备了为残障用户服务的高度亲和力。还有更多的创作使你的亲和力更上一层楼，而且不难。见<a href="html-advanced-links.html">亲和连接</a>和<a href="html-advanced-forms.html">亲和表单</a>指南。</p>
+					<h3 class="break">延伸阅读</h3>
+					<ul>
+						<li><a href="html-beginner-index.html">HTML初级指南</a>──兼容HTML标准的HTML基础</li>
+						<li><a href="css-advanced-layout.html">布局</a>──用CSS取代表格</li>
+						<li><a href="html-advanced-declarations.html">声明</a>──定义XHTML文档</li>
+					</ul>
+		
+</div><!--内容结束-->
+	
+
+<div id="g728x15l" class="iclear">
+<script type="text/javascript" src="/js/g728x15l.js">
+	</script>
+	<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+</div>
+<div id="web_footer" class="txt_c iclear">
+	<div id="footer_link" class="li_inline">
+	<ul>
+	<li><a href="#web_head" accesskey="0" title="AccessKey 0:jupm to this page head">顶部(0)</a></li>
+	<li><a href="../../accessibility.htm" accesskey="a" title="AccessKey A:Accessibility of this site">可访问性(A)</a></li>
+	<li><a href="../../FAQ.htm#accesskey_list" accesskey="k" title="AccessKey K:how use AccessKey  at this site">快捷键(K)</a></li>
+	<li><a href="../../About.htm" title="About US">关于我们</a></li>
+	<li><a href="../../team/contact.htm" accesskey="c" title="AccessKey c:go to page of contact us">联系(C)</a></li>
+	<li><a href="../../team/" title="CodeCoke Team">CoC团队</a></li>
+	<li><a href="../../link.htm" title="links">链接</a></li>
+		<li><a href="../../SiteMap.htm" accesskey="m" title="AccessKey M:site Map">网站地图(M)</a></li>
+	<li><a href="../../server/mail.htm">邮箱</a></li>
+	<li><a href="../../team/copyLeft.htm" title="CopyRight">版权-创用共享</a></li>
+	</ul>
+	</div>
+	<div id="footer_copyright">&copy;&nbsp;2006&nbsp;<a href="http://www.codecoke.com/" title="CodeCoke web Tech">Code<span class="coc">Coke</span>.com&nbsp;代码课</a></div>
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+_uacct = "UA-283516-3";
+urchinTracker();
+</script>
+</body></html>

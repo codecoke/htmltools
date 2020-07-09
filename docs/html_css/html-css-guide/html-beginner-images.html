@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+      <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content="CodeCoke,w_AT_CodeCoke.com" />
+<meta name="keyword" content="Design,xml,xhtml,css,code,web,website,webtech,guide,script,javascript,ajax,t-sql,asp,aspx,iis" />
+<meta name="Description" content="Web Standards（网页标准），XHTML+CSS设计网页，html指南、技术文章，推动版权意识、共享精神的发展与提高。CodeCoke"/>
+<meta name="Designer" content="莫非" />	
+<meta name="robots" content="all" />
+<link type="text/css" rel="stylesheet" href="../../style/global.css" />
+<link type="text/css" rel="stylesheet" href="css/html_css_con.css" />
+<title>图像-HTML初级指南--xhtml-css--guide-Tech-CodeCoke</title>
+
+<script type="text/javascript" src="/js/Newlink.js"></script>
+</head>
+<body>
+<div id="web_head">
+	<div id="web_nav" class="li_inline">
+	<a href="#content" class="ileft" accesskey="1" title="AccessKey 0,go to content of this page"><strong>跳到内容</strong>(1)</a>
+	<a href="/" class="ileft"> Cob.com.cn</a>
+	<ul class="txt_r">
+	<li><a href="../../" accesskey="h" title="AccessKey H: go to home page">首页(H)</a></li>
+	<li><a href="../../tech/" accesskey="w" title="AccessKey W: go to channel of web Tech">教程(W)</a></li>
+	<li><a href="../../server/" accesskey="b" title="AccessKey S: go to chnnel of our business">服务(B)</a></li>
+	<li><a href="../../links/" accesskey="i" title="AccessKey I: go to channel of cool site links">酷站(I)</a></li>
+	<li><a href="../../downLoad/" accesskey="d" title="AccessKey D: go to channel of download">资源(D)</a></li>
+	<li><a href="../../log/" accesskey="l" title="AccessKey L:go to channel of blog">日志(L)</a></li>
+	<li><a href="#site_footer" accesskey="9" title="AccessKey 9: go to footer of this page">底部(9)</a></li>
+	</ul>
+	</div>
+	<h1><a href="../../">Code<span class="coc">Coke</span></a></h1>
+	<h2>HTML初级指南·图像</h2>
+	<div id="web_path" class="iclear">
+	<div id="web_search" class="iright"><script src="/js/g_search_from_1.js" type="text/javascript"></script></div>
+	您的位置：<a href="../../">首页</a>&gt;&gt;<a href="../../tech">教程</a>&gt;&gt;<a href="../html-css-guide/">HTML和CSS网页标准指南</a>&gt;&gt;<a href="html-beginner-index.html">HTML初级指南</a>&gt;&gt;图像<span class="iclear"></span>
+</div>
+</div>
+<div id="content">
+	<h1>图像</h1>
+	<p>都是文本的话看起来让人感到乏味和无聊，自然，网页不应该仅仅是文本而已，它是多媒体的，最常见的形式就是图像。</p>
+	<p>图像标签<strong><code>img</code></strong>用来为<abbr title="HyperText Markup Language">HTML</abbr>添加图像，像下面这样改进你的代码：</p>
+
+<pre>
+<code><strong>&lt;img 
+src="http://cob.com.cn/logo.gif" 
+width="88" height="31" 
+alt="mysite logo" /&gt;</strong></code>
+</pre>
+	<p><strong><code>src</code></strong>属性告诉浏览器图像的地址。就像<code>a</code>标签一样，它可以是绝对的，如示范所示，但更多时候它是相对的。比如，你拥有自己的图像且已经另存为alienpie.jpg放置在images文件夹下，代码可以这样写<code>&lt;img src="images/alienpie.jpg"...</code></p>
+	<blockquote>
+	<h4>CobStudio补充：</h4>
+	<p>长度属性<strong><code>width</code></strong>和高度属性<strong><code>height</code></strong>在早期的html是必需的，因为浏览器在下载过程中能够计算出图像占据的空间，否则浏览器可能会产生一个页面的跳跃，因为事先并不知道图像要占用多少空间，以致于破坏页面布局。但是，现在我们<srtong>有更好的办法，使用css来控制图片的宽和高</strong>，这样更符合表现和数据分离原则，也使代码控制和维护更容易</p>
+	<p>就像这样：</p>
+<pre>
+<code><strong>&lt;img 
+src="http://cob.com.cn/logo.gif" 
+style="width:88px; height:31px;" 
+alt="mysite logo" /&gt;</strong></code>
+</pre>
+</blockquote>
+	<p><strong><code>alt</code></strong>属性表示可替代的描述。这是为不能或者不选择图像显示的客户端着想（比如终端浏览器lynx，不能显示图片，但可显示<code>alt</code>中的文本。最坏的情况是，你写错了图片的文件名或者路径，即使在图形浏览器中图片显示不出，但仍可显示出<code>alt</code>中的文本，不会让访问者造成不必要的误解。什么情况下我们都推荐你，一定记得使用<code>alt</code>。——译者注）。在最新版本的HTML版本中，这是不可缺少的属性。</p>
+	<div class="note">
+	<h3>注意</h3>
+	<p>给网页创做图像虽然不是本站的主题，但我们还是有一些对你有用的东西要说。</p>
+	<p>经常被用到的图像格式是GIF和JPEG。他们都是压缩过的格式，有各自十分不同的用途。</p>
+	<p>GIF图像不超过256色，但可以保持原有图像的色彩。色数越低，图像文件就越小。</p>
+	<p>GIF应该用在有纯质颜色的图像上。</p>
+	<p>JPEG使用十分精确的算法来压缩图像，对原图像有些微的改变。压缩程度越低，图像文件越大，从而图像更清晰。</p>
+	<p>JPEG应该使用在要逼真描绘的诸如摄影的图像上。</p>
+	<p>网页设计初学者需要处理的文件可能就是图像文件了，忽视图像过大是初学者常犯的错误。网页下载应该尽可能快，想想看，一个使用少于7kb每秒的Modem联网的人要用多少时间来下载你的整个页面。</p>
+	<p>你必须在图像质量和图像文件大小之间作出选择。许多现代的图像处理软件允许用最佳方式压缩图像，但同样是一个冒险，或者产生错误。</p>
+	<blockquote>译者有话说：显然，以前还没有谁推荐PNG格式的图像，可能只因为<abbr title="Internet Explorer">IE6</abbr>以下版本对其糟糕的支持。IE7已经支持透明PNG。<del datetime="20050106">GIF到目前为止还没有解决专利问题，使用它还是得冒侵权之危险。</del>PNG很有潜力，同样也具有透明能力，色数也不止GIF的可怜的256色而已，却具有JPEG的高清晰、高保真度，这也是我，以个人的立场向你推荐的原因。</blockquote>
+		<p>请参考<a href="png-gif.html">GIF还是PNG</a>。</p>
+					</div>
+	<h3 class="break">延伸阅读</h3>
+<ul>
+<li id="next">下一页：<a href="html-beginner-tables.html">表格</a></li>
+<li id="previous">上一页：<a href="html-beginner-links.html">连接</a></li>
+<li><a href="png-gif.html">GIF还是PNG</a></li>
+</ul>
+
+</div>
+
+<div id="g728x15l" class="iclear">
+<script type="text/javascript" src="/js/g728x15l.js">
+	</script>
+	<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+</div>
+<div id="web_footer" class="txt_c iclear">
+	<div id="footer_link" class="li_inline">
+	<ul>
+	<li><a href="#web_head" accesskey="0" title="AccessKey 0:jupm to this page head">顶部(0)</a></li>
+	<li><a href="../../accessibility.htm" accesskey="a" title="AccessKey A:Accessibility of this site">可访问性(A)</a></li>
+	<li><a href="../../FAQ.htm#accesskey_list" accesskey="k" title="AccessKey K:how use AccessKey  at this site">快捷键(K)</a></li>
+	<li><a href="../../About.htm" title="About US">关于我们</a></li>
+	<li><a href="../../team/contact.htm" accesskey="c" title="AccessKey c:go to page of contact us">联系(C)</a></li>
+	<li><a href="../../team/" title="CodeCoke Team">CoC团队</a></li>
+	<li><a href="../../link.htm" title="links">链接</a></li>
+		<li><a href="../../SiteMap.htm" accesskey="m" title="AccessKey M:site Map">网站地图(M)</a></li>
+	<li><a href="../../server/mail.htm">邮箱</a></li>
+	<li><a href="../../team/copyLeft.htm" title="CopyRight">版权-创用共享</a></li>
+	</ul>
+	</div>
+	<div id="footer_copyright">&copy;&nbsp;2006&nbsp;<a href="http://www.codecoke.com/" title="CodeCoke web Tech">Code<span class="coc">Coke</span>.com&nbsp;代码课</a></div>
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+_uacct = "UA-283516-3";
+urchinTracker();
+</script>
+</body></html>

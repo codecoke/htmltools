@@ -1,0 +1,12 @@
+
+body {
+  voice-family: male;
+}
+
+acronym, abbr {
+  speak: spell-out;
+}
+
+code {
+  speak-punctuation: code;
+}

@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/2001/REC-xhtml11-20010531/DTD/xhtml11-flat.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" href="../../skin/utf-8/global.css" rel="stylesheet" media="screen,projection" />
+<link type="text/css" href="../../skin/utf-8/global_blue.css" rel="stylesheet" media="screen,projection" />
+<link type="text/css" href="../../skin/utf-8/p.css" rel="stylesheet" media="screen,projection" />
+<link type="text/css" href="../../skin/utf-8/p_blue.css" rel="stylesheet" media="screen,projection" />
+<title>第十三天：使用真实链结 - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="CodeCoke.com" href="http://www.codecoke.com/" />
+
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：小莉" href="day_1_Jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_12_using_color_safely.html" title="第十二天：安全地使用色彩" />
+<link rel="next" href="day_14_adding_titles_to_links.html" title="第十四天：在链结上加入标题" />
+
+<script type="text/javascript" src="/js/utf-8/newlink.js"></script>
+</head>
+<body>
+<div id="icontent">
+<div id="p_con">
+<!--contentStar-->
+<h1>第十三天：使用真实链结</h1>
+<h2>Using Real Links 第十三天：使用真实链结</h2>
+<!--titleAD-->
+<div class="txt_c">
+	<script type="text/javascript" src="/js/utf-8/g468x60white.js">
+	</script>
+	<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+</div>
+<p>网页设计的苦难根源乃是“ <code>javascript:</code> ”链结；这个假链结会在你按下的时候执行一段 Javascript 程式码。这个问题最常发生于，博客(blog)用这种链结来在另一个视窗里显示回响。为什么这会是个问题呢？因为<a title="TheCounter.com statistics on Javascript usage in browsers, April 2002" href="http://www.thecounter.com/stats/2002/April/javas.php" rel="newlink">有 11% 的网际网络使用者因为某些原因而不使用 Javascript</a> ；这同时也包括许多残障的朋友，因为她们所能够使用的浏览器就是不支援。这种假链结对她们来说不能用，你应当改用真实的链结。</p>
+
+<p>虽然这个问题很容易描述及修改，但是无论我多么强调这个技巧的重要性也都不为过。多数问题，像是<a href="day_11_skipping_over_navigation_links.html">不提供跳过导航列的“跳过链结”</a>都只不过会在某种程度上减低可用性罢了，至少你的页面还能够被读取。但是现在我们所遇到的这个问题，却会让重要的内容几乎完全无法被取得。如果你的回响被藏在某个“ <code>javascript:</code> ”链结之后，<em>就几乎不存在了</em>。</p>
+
+<h3>谁因此获益？</h3>
+<blockquote>
+<ol>
+
+<li><a href="day_5_marcus.html">陈建国</a> 从中获益了。因为 <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a> 并不支援 Javascript 。</li>
+<li><a href="day_2_michael.html">莫非</a> 从中获益了。因为 <a href="http://links.sourceforge.net/" rel="newlink">Links</a> 并不支援 Javascript 。</li>
+<li><a href="day_4_lillian.html">马大姐</a> 从中获益了。虽然她用的是 Internet Explorer ，但是资讯部门只允许某些获准的网站使用 Javascript ，而把其他网站的 Javascript 给挡掉了；很不幸地，你的网站并不在这些获准的网站中。</li>
+<li><a href="http://www.google.com/">Google</a> 从中获益了。因为 Google 会跟着链结来寻找更多内容并加以建立索引，但是它却无法使用“ <code>javascript:</code> ”链结；因为当它索引网页时并不会执行任何 Javascript 程式码。</li>
+</ol>
+</blockquote>
+<h3>怎么做</h3>
+
+
+<p><strong>现在 Movable Type 和 Radio 的预设模版都把这个部分处理好了</strong>，所以你无须再做任何处理。检视你的首页并搜索“ <code>javascript:</code> ”；如果完全找不到，那么也用不到今天的技巧了。</p>
+
+<p>然而，如果你的 Movable Type 模版包含有像这样的链结：</p>
+
+<pre>&lt;a href=&quot;javascript:OpenComments(&lt;$MTEntryID$&gt;)&quot;>
+Comments (&lt;$MTEntryCommentCount$&gt;)&lt;/a&gt;</pre>
+
+<p>就请把它改成这样：</p>
+
+<pre>&lt;a 
+href=&quot;&lt;$MTCGIPath$&gt;mt-comments.cgi?entry_id=&lt;$MTEntryID$&gt;&quot; 
+onclick=&quot;OpenComments(&lt;$MTEntryID$&gt;); return false&quot;&gt;
+Comments (&lt;$MTEntryCommentCount$&gt;)&lt;/a&gt;</pre>
+
+<p>在支援 Javascript 的浏览器里，原来的链结仍会具有相同的作用；因为 <code>onclick</code> 属性会优先于 <code>href</code> 属性。所以在新版里，仍然会叫用 <code>OpenComments</code> 函式，然后弹出新视窗。然而在不支援 Javascript 的浏览器（还有 Google ）的情况下，就会完全忽略 <code>onclick</code> 属性，而只从 <code>href</code> 属性来连结，用同一个视窗来显示评论。</p>
+
+<p>如果你因为其他原因而用了 <code>javascript:</code> 假链结的话，停。停下来。别继续下去，别继续领四千元或之类的。在你的源码里套用上述的技巧，让不支援 Javasript 的浏览器至少还有机会能够使用真实链结。</p>
+
+<h3>延伸阅读</h3>
+<blockquote>
+<ul>
+<li><cite title="Evolt.org">Jeff Howden</cite>: <a href="http://www.evolt.org/article/Links_and_JavaScript_Living_Together_in_Harmony/17/20938/">Links &amp; JavaScript Living Together in Harmony</a>.</li>
+</ul>
+</blockquote>
+<h3>附注</h3>
+
+<p>甚至别开始用那些<a href="http://www.dynamicdrive.com/dynamicindex1/index.html">以 Javascript 做出来的动态选单系统</a>。他们确实让画面看起来很酷，不过抽烟也一样。用真实链结吧。</p>
+
+
+
+<p class="pageturn">
+<a href="day_12_using_color_safely.html">&lt;&lt; 第十二天：安全地使用色彩</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="day_14_adding_titles_to_links.html">第十四天：在链结上加入标题 &gt;&gt;</a>
+</p>
+
+</div>
+</div>
+<!--contentEnd-->
+<!--topStar-->
+<div id="site_top">	
+	<div id="site_nav">
+	<a href="#channel_nav" class="skip">跳到频道导航</a>
+	<ul>
+	<li><a href="#site_footer" accesskey="9" title="AccessKey 9">↓</a></li>
+	<li><a href="../../log/" accesskey="l" title="AccessKey L">日志</a></li>
+	<li><a href="../../downLoad/" accesskey="d" title="AccessKey D">资源</a></li>
+	<li><a href="../../links/" accesskey="i" title="AccessKey I">酷站</a></li>
+	<li><a href="../../server/" accesskey="b" title="AccessKey S">服务</a></li>
+	<li><a href="../../tech/" accesskey="w" title="AccessKey W" class="now_here">教程</a></li>
+	<li><a href="../../" accesskey="h" title="AccessKey H: go to home page">首页</a></li>
+	</ul>
+	<span class="iclear"></span>
+	</div>
+	<div id="channel_nav" class="iclear">
+		<a href="#end_channel_nav" class="skip">Skip channel nav</a>
+	<ul>
+		<li><strong>Accessibility</strong></li>
+		<li>|<a href="../html-css-guide/">HTML-CSS标准指南</a></li>		
+		<li>|<a href="../VBScript">VBScript</a>|</li>
+		<li><a href="../JavaScript">JavaScript</a>|</li>
+		<li><a href="../CSS2_guide/">CSS2.0</a>|</li>
+		<li><a href="../web-design/">Web&nbsp;Design</a>|</li>
+		<li><a href="../Ajax/">Ajax</a></li>		
+	</ul>
+	<span id="end_channel_nav" class="skip">End&nbsp;Channel&nbsp;Nav</span>
+	</div>
+	<!--siteNavEnd-->
+<div id="site_head">
+		<a href="#icontent" class="skip">略过头部</a>
+		<div id="site_logo">
+		<a href="/">Code<span class="coc">Coke</span></a>
+		<strong>代码课&nbsp;&nbsp;.com</strong>
+		</div>		
+		<div id="site_search">	<script src="../../js/utf-8/site-search.js" type="text/javascript"></script></div>
+		<p><em>{</em>Divo&nbsp;in&nbsp;Accessibility</p>
+		<div id="site_path">您的位置&gt;<a href="../../" accesskey="h">首页</a>&gt;<a href="../">教程</a>&gt;<a href="./">30Day可访问性指南</a>&gt;<span>阅读</span></div>
+		<span class="iclear"></span>
+</div>
+<!--headEnd-->
+</div>
+<!--siteTopEnd-->
+<div id="site_desc"><a href="#icontent" title="跳到内容">&gt;</a>可访问性指南</div>
+<!--pageNavStar-->
+<div id="p_nav">
+	<a href="#p_nav_end" class="skip">略过页面导航</a>
+<div class="pnav_team">
+<h3>Divo in Accessibility</h3>
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">阅读说明</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">按人物不同阅读</a></li>
+<li><a href="by_disability.html">按障碍不同阅读</a></li>
+<li><a href="by_design_principle.html">按设计原则不同阅读</a></li>
+<li><a href="by_web_browser.html">按浏览器差异阅读</a></li>
+<li><a href="by_publishing_tool.html">按出版工具不同阅读</a></li>
+<li><a href="../../team/contact.htm" accesskey="c">建议与回响</a></li>
+<li><a title="著作权跟授权资讯" href="terms_of_use.html" accesskey="8">版权声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+</div>
+<div class="pnav_piece txt_c">
+	<script type="text/javascript" src="/js/utf-8/g200x200blue_light.js">
+	</script>
+	<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"> 
+	</script>
+</div>
+<div class="pnav_piece">
+<p><a href="../css2_guide/">CSS2.0 中文手册</a></p>
+<p><a href="../html-css-guide/">HTML&nbsp;标准指南</a></p>
+<p>
+	<script type="text/javascript" src="/js/utf-8/gadsence_txt.js">
+	</script>
+	<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"> 
+	</script>
+</p>
+</div>
+</div>
+<!--pageNavEnd-->
+<div class="iclear g728x90gray">
+		<script type="text/javascript" src="/js/utf-8/g728x90gray.js">
+		</script>
+		<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
+</div>
+<div id="footer_ad" class="iclear">
+	<script type="text/javascript" src="/js/utf-8/g728x15gray.js">
+	</script>
+	<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+</div>
+<div id="site_footer" class="txt_c iclear">
+	<div id="footer_nav" class="li_inline">
+	<ul>
+	<li><a href="#site_top" accesskey="0" title="AccessKey 0:jupm to this page head">顶部(0)</a></li>
+	<li><a href="../../accessibility.htm" accesskey="a" title="AccessKey A:Accessibility of this site">可访问性(A)</a></li>
+	<li><a href="../../FAQ.htm#accesskey_list" accesskey="k" title="AccessKey K:how use AccessKey  at this site">快捷键(K)</a></li>
+	<li><a href="../../About.htm" title="About US">关于我们</a></li>
+	<li><a href="../../team/contact.htm" accesskey="c" title="AccessKey c:go to page of contact us">联系(C)</a></li>
+	<li><a href="../../team/" title="CodeCoke Team">CoC团队</a></li>
+	<li><a href="../../link.htm" title="links">链接</a></li>
+	<li><a href="../../SiteMap.htm" accesskey="m" title="AccessKey M:site map">网站地图(M)</a></li>
+	<li><a href="../../server/mail.htm" title="CodeCoke Mail Login">邮箱</a></li>
+	<li><a href="../../team/copyLeft.htm" title="CopyRight">版权-创用共享</a></li>
+	</ul>
+	</div>
+	<div id="footer_copyright">&copy;&nbsp;2006&nbsp;<a href="http://www.codecoke.com/" title="CodeCoke web tech">Code<span class="coc">Coke</span>&nbsp;代码课</a><a href="http://validator.w3.org/check?uri=http%3A%2F%2Fwww.codecoke.com%2F" rel="newlink" title="Valid XHTML 1.1" class="w3c_valid">XHTML1.1</a><a href="http://jigsaw.w3.org/css-validator/validator?uri=http://www.codecoke.com" rel="newlink" title="Valid CSS2.0" class="w3c_valid">CSS2.0</a></div>
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+_uacct = "UA-283516-3";
+urchinTracker();
+</script>
+</body></html>
+
+

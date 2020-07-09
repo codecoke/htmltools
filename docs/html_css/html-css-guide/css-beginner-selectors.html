@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+      <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content="CodeCoke,w_AT_CodeCoke.com" />
+<meta name="keyword" content="Design,xml,xhtml,css,code,web,website,webtech,guide,script,javascript,ajax,t-sql,asp,aspx,iis" />
+<meta name="Description" content="Web Standards（网页标准），XHTML+CSS设计网页，html指南、技术文章，推动版权意识、共享精神的发展与提高。CodeCoke"/>
+<meta name="Designer" content="莫非" />	
+<meta name="robots" content="all" />
+<link type="text/css" rel="stylesheet" href="../../style/global.css" />
+<link type="text/css" rel="stylesheet" href="css/html_css_con.css" />
+<title>选择符、属性和值-CSS初级指南--xhtml-css--guide-Tech-CodeCoke</title>
+
+<script type="text/javascript" src="/js/Newlink.js"></script>
+</head>
+<body>
+<div id="web_head">
+	<div id="web_nav" class="li_inline">
+	<a href="#content" class="ileft" accesskey="1" title="AccessKey 0,go to content of this page"><strong>跳到内容</strong>(1)</a>
+	<a href="/" class="ileft"> Cob.com.cn</a>
+	<ul class="txt_r">
+	<li><a href="../../" accesskey="h" title="AccessKey H: go to home page">首页(H)</a></li>
+	<li><a href="../../tech/" accesskey="w" title="AccessKey W: go to channel of web Tech">教程(W)</a></li>
+	<li><a href="../../server/" accesskey="b" title="AccessKey S: go to chnnel of our business">服务(B)</a></li>
+	<li><a href="../../links/" accesskey="i" title="AccessKey I: go to channel of cool site links">酷站(I)</a></li>
+	<li><a href="../../downLoad/" accesskey="d" title="AccessKey D: go to channel of download">资源(D)</a></li>
+	<li><a href="../../log/" accesskey="l" title="AccessKey L:go to channel of blog">日志(L)</a></li>
+	<li><a href="#site_footer" accesskey="9" title="AccessKey 9: go to footer of this page">底部(9)</a></li>
+	</ul>
+	</div>
+	<h1><a href="../../">Code<span class="coc">Coke</span></a></h1>
+	<h2>CSS初级指南·选择符、属性和值</h2>
+	<div id="web_path" class="iclear">
+	<div id="web_search" class="iright"><script src="/js/g_search_from_1.js" type="text/javascript"></script></div>
+	您的位置：<a href="../../">首页</a>&gt;&gt;<a href="../../tech">教程</a>&gt;&gt;<a href="../html-css-guide/">HTML和CSS网页标准指南</a>&gt;&gt;<a href="css-beginner-index.html">CSS初级指南</a>&gt;&gt;选择符、属性和值
+	<span class="iclear"></span>
+	<span class="iclear"></span>
+</div>
+</div>
+<div id="content">
+	<h1>选择符、属性和值</h1>
+	<p><abbr title="HyperText Markup Language">HTML</abbr>有<strong>标签（tag）</strong>，<acronym title="Cascading Style Sheets">CSS</acronym>就有<strong>选择符（selector）</strong>。选择符就是赋予内部或者外部样式表的名字。在 CSS初级指南中，我们致力于<strong>HTML选择符</strong>，即是HTML的标签，用来改变一个指定标签的样式。</p>
+					<p>每个选择符都有<strong>属性（properties）</strong>在大括号<strong>{}</strong>中，里面包括诸如<code>color</code>、<code>font-weighth</code>或者 <code>background-color</code>形式的字样。</p>
+					<p>值（<strong>value</strong>）在半角英文引号<stong>:</stong>后面，用半角英文分号<strong>;</strong>隔离。</p>
+					<pre>
+<code>body {font-size: 0.8em;color: navy;}</code>
+					</pre>
+					<p>如上，这给body选择符里的font-size和color属性赋值。</p>
+					<p>基本上，这应用在HTML文档的话，在body标签之间（整个窗口的内容）文本将会有0.8em大小，显示为深蓝色。</p>
+					<h2>长度和百分比</h2>
+					<p>CSS中有很多专有的属性单位，也有很多能够用在大量属性的常规单位，在你继续学习之前，它们值得你熟悉一下。</p>
+					<p><strong>em</strong>（比如<code>font-size: 2em</code>）是一个大致与一个字符高度相同的单位。</p>
+					<p><strong>px</strong>（<code>font-size: 12px</code>）是一个像素的单位。</p>
+					<p><strong>pt</strong>（<code>font-size: 12pt</code>）是一个磅的单位。</p>
+					<p><strong>%</strong>（<code>font-size: 80%</code>）是一个……单位，等等，哦，是百分比。</p>
+					<p>其他单位还包括<strong>pc</strong>(活字），<strong>cm</strong>（厘米），<strong>mm</strong>（毫米）和<strong>in</strong>（英寸）。</p>
+					<p>一个值是<strong>0</strong>的时候你不必为它声明一个单位。比如，你不想要边界，可以这样设置：<code>border: 0</code> 。</p>
+					<div class="note">
+						<h3>注意</h3>
+						<p>网页不是静态、绝对的媒体。这意味着，网页具有灵活性，用户被允许按他们的喜好方式浏览网页，包括字体尺寸和屏幕的大小等等。</p>
+						<p>因此，为font-size属性赋值的单位中，最佳的是em或者%，而px在多数浏览器中会导致文本具有不可缩放性，也会导致贫乏、乏味的文本。</p>
+					</div>
+					<h3 class="break">延伸阅读</h3>
+					<ul>
+						<li id="next">下一页：<a href="css-beginner-colours.html">颜色</a></li>
+						<li id="previous">上一页：<a href="css-beginner-applyingcss.html">应用CSS</a></li>
+					</ul>
+		</div>
+		
+<div id="g728x15l" class="iclear">
+<script type="text/javascript" src="/js/g728x15l.js">
+	</script>
+	<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+</div>
+<div id="web_footer" class="txt_c iclear">
+	<div id="footer_link" class="li_inline">
+	<ul>
+	<li><a href="#web_head" accesskey="0" title="AccessKey 0:jupm to this page head">顶部(0)</a></li>
+	<li><a href="../../accessibility.htm" accesskey="a" title="AccessKey A:Accessibility of this site">可访问性(A)</a></li>
+	<li><a href="../../FAQ.htm#accesskey_list" accesskey="k" title="AccessKey K:how use AccessKey  at this site">快捷键(K)</a></li>
+	<li><a href="../../About.htm" title="About US">关于我们</a></li>
+	<li><a href="../../team/contact.htm" accesskey="c" title="AccessKey c:go to page of contact us">联系(C)</a></li>
+	<li><a href="../../team/" title="CodeCoke Team">CoC团队</a></li>
+	<li><a href="../../link.htm" title="links">链接</a></li>
+		<li><a href="../../SiteMap.htm" accesskey="m" title="AccessKey M:site Map">网站地图(M)</a></li>
+	<li><a href="../../server/mail.htm">邮箱</a></li>
+	<li><a href="../../team/copyLeft.htm" title="CopyRight">版权-创用共享</a></li>
+	</ul>
+	</div>
+	<div id="footer_copyright">&copy;&nbsp;2006&nbsp;<a href="http://www.codecoke.com/" title="CodeCoke web Tech">Code<span class="coc">Coke</span>.com&nbsp;代码课</a></div>
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+_uacct = "UA-283516-3";
+urchinTracker();
+</script>
+</body></html>

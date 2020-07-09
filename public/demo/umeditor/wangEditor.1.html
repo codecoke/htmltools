@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>wang editor demo 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="public/lib/wangEditor.js"></script>
+</head>
+<body>
+    <div id="t1">
+        <p>t1 p</p>
+    </div>
+
+    <textarea id="txt1" cols="30" rows="10">1</textarea>
+    <button id="btn1">获取html</button>
+<button id="btn2">获取text</button>
+
+<script>
+
+/*
+ * 传递函数给whenReady()
+ * 当文档解析完毕且为操作准备就绪时，函数作为document的方法调用
+ */
+ var whenReady = (function() {               //这个函数返回whenReady()函数
+    var funcs = [];             //当获得事件时，要运行的函数
+    var ready = false;          //当触发事件处理程序时,切换为true
+    
+    //当文档就绪时,调用事件处理程序
+    function handler(e) {
+        if(ready) return;       //确保事件处理程序只完整运行一次
+        
+        //如果发生onreadystatechange事件，但其状态不是complete的话,那么文档尚未准备好
+        if(e.type === 'onreadystatechange' && document.readyState !== 'complete') {
+            return;
+        }
+        
+        //运行所有注册函数
+        //注意每次都要计算funcs.length
+        //以防这些函数的调用可能会导致注册更多的函数
+        for(var i=0; i<funcs.length; i++) {
+            funcs[i].call(document);
+        }
+        //事件处理函数完整执行,切换ready状态, 并移除所有函数
+        ready = true;
+        funcs = null;
+    }
+    //为接收到的任何事件注册处理程序
+    if(document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', handler, false);
+        document.addEventListener('readystatechange', handler, false);            //IE9+
+        window.addEventListener('load', handler, false);
+    }else if(document.attachEvent) {
+        document.attachEvent('onreadystatechange', handler);
+        window.attachEvent('onload', handler);
+    }
+    //返回whenReady()函数
+    return function whenReady(fn) {
+        if(ready) { fn.call(document); }
+        else { funcs.push(fn); }
+    }
+})();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        var E = window.wangEditor
+        var editor = new E('#t1')
+        var  $text1 = document.getElementById('txt1')
+        //editor2.create()
+   
+        editor.customConfig.onchange = function (html) {
+            // 监控变化，同步更新到 textarea
+            //$text1.val(html)
+            //console.log($text1.value);
+            $text1.value = html
+            //console.log(document.getElementById('txt1').value);
+        }
+        
+        editor.create()
+        
+        document.getElementById('btn1').addEventListener('click', function () {
+        // 读取 html
+        //alert(editor.txt.html())
+            $text1.value = editor.txt.html()
+    }, false)
+    
+    document.getElementById('btn2').addEventListener('click', function () {
+            $text1.value = editor.txt.text()
+        // 读取 text
+        // alert(editor.txt.text())
+        }, false)
+        
+        
+        // 初始化 textarea 的值
+        //$text1.val(text1.value)
+        //document.getElementById('t1').innerText('12')
+        //console.log(document.getElementById('#txt1'));
+        console.log(editor.customConfig);
+        // console.log(editor.txt.text());
+        // console.log(editor.txt.html());
+        // console.log(editor.txt.html());
+        
+        // console.log(JSON.stringify(editor.txt.getJSON()));
+        
+        
+   </script>
+</body>
+</html>

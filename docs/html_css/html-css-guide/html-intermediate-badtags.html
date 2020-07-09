@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+      <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Designer" content="莫非" />	
+<meta name="robots" content="all" />
+<link type="text/css" rel="stylesheet" href="../../style/global.css" />
+<link type="text/css" rel="stylesheet" href="css/html_css_con.css" />
+<link type="text/css" rel="stylesheet" href="css/default.css" />
+<meta name="copyright" content="CodeCoke,w_AT_CodeCoke.com" />
+<meta name="keyword" content=",HTML,XHTML,CSS,Web Standards,Web标准,网页设计,网页设计教程,网页标准,层叠样式表,级联样式表,website,web-Tech,guide,script,javascript,ajax" />
+<meta name="Description" content="Web Standards（网页标准），DIV+CSS设计网页，html指南、技术文章，推动版权意识、共享精神的发展与提高。CodeCoke"/>
+<title>不良标签 - HTML和CSS网页标准中级指南</title>
+
+<script type="text/javascript" src="/js/Newlink.js"></script>
+</head>
+<body>
+
+	<div id="web_head">
+	<div id="web_nav" class="li_inline">
+	<a href="#content" class="ileft" accesskey="1" title="AccessKey 0,go to content of this page"><strong>跳到内容</strong>(1)</a>
+	<a href="/" class="ileft"> Cob.com.cn</a>
+	<ul class="txt_r">
+	<li><a href="../../" accesskey="h" title="AccessKey H: go to home page">首页(H)</a></li>
+	<li><a href="../../tech/" accesskey="w" title="AccessKey W: go to channel of web Tech">教程(W)</a></li>
+	<li><a href="../../server/" accesskey="b" title="AccessKey S: go to chnnel of our business">服务(B)</a></li>
+	<li><a href="../../links/" accesskey="i" title="AccessKey I: go to channel of cool site links">酷站(I)</a></li>
+	<li><a href="../../downLoad/" accesskey="d" title="AccessKey D: go to channel of download">资源(D)</a></li>
+	<li><a href="../../log/" accesskey="l" title="AccessKey L:go to channel of blog">日志(L)</a></li>
+	<li><a href="#site_footer" accesskey="9" title="AccessKey 9: go to footer of this page">底部(9)</a></li>
+	</ul>
+	</div>
+	<h1><a href="../../">Code<span class="coc">Coke</span></a></h1>
+	<h2>不良标签</h2>
+	<div id="web_path" class="iclear">
+	<div id="web_search" class="iright"><script src="/js/g_search_from_1.js" type="text/javascript"></script></div>
+	您的位置：<a href="../../">首页</a>&gt;&gt;<a href="../../tech/">教程</a>&gt;&gt;<a href="../html-css-guide/">HTML&nbsp;标准指南</a>&gt;&gt; &gt; <a href="html-intermediate-index.html">HTML中级指南</a> &gt; <a href="html-intermediate-badtags.html">不良标签</a><span class="iclear"></span>
+</div>
+</div><!--头部结束-->
+<div id="content"><!--内容开始-->
+<p>这次着眼于一些童话世界和史前时代的<abbr title="HyperText Markup Language">HTML</abbr>标签。它们是被HTML标准抛弃的不良、肮脏、十足丑陋的，胡乱荒谬的属性，只能部分地工作在一个次版本的浏览器上或者可以被新标签取代的标签。</p>
+					<p>有人建议我们不要歌颂标准尽管我们教授基于标准的HTML和<acronym title="Cascading Style Sheets">CSS</acronym>，但如果这样的话，用户（特别是初学者）会遭遇不良的入门方法和不良练习，同时他们并不知道哪里出错了。所以我们的答案是：<strong>一份拒绝不良标签的指南</strong>。</p>
+					<p>HTML已经尝试去除表现和朝向内容发展，导致这样一个基本原理：从<strong>表现</strong>（CSS）中分离出<strong>内容意义</strong>（HTML）。这将会给网页减肥，因为一个表现指令集合（以外部CSS文档的形式）可以应用到多个页面。这也会使网站更易于管理因为全局变动可以从修改一个单独的文件得到。</p>
+					<p>部分不良标签基本上是表现标签（比如<code>small</code>），它们可以用更有意义和更简单的CSS规则取代。其他的不仅用于表现，而且还是不必要的庞大（比如<code>font</code>标签）或者对可用性有害的可恶的（比如<code>blink</code>）。</p>
+					<h2>标签</h2>
+					<p>下面这些是你可能会经常碰到的可以有更好选择的标签：</p>
+					<ul>						<li><strong><code>b</code></strong> 可以用来产生粗体元素。使用<code>strong</code>（意味着强烈强调）代替更有意义，或者用CSS来完成这项工作，增加<code>font-weight: bold</code>的规则，用来表明粗体元素。</li>
+					<li><strong><code>i</code></strong>可以用来产生斜体元素。使用<code>em</code>（表示强调），这也更有意义。或者可以用CSS来表现斜体：<code>font-style: italic</code></li>
+					<li><strong><code>big</code></strong>可以产生更大字体。使用标题（如<code>h1</code>，<code>h2</code>等，当文本本来就是一个标题时）代替，增加了意义，或简单地在CSS中使用<code>font-size</code>属性，获取更多的控制权。</li>
+					<li><strong><code>small</code></strong> 可以产生小字体。CSS（<code>font-size</code>）再一次取得更多的控制权。</li>						<li><strong><code>hr</code></strong> 可用用来展现一条水平线。在CSS中用<code>hr</code>设计很少见，CSS的<code>border-top</code>，<code>border-bottom</code>属性或者朴素的图像做这个效果会更好。</li>
+					</ul>
+					<p>上述的标签与最新的HTML标准尽管都兼容，但对内容却没有任何好标签应有的意义。They could be more useful but they aren't particularly harmful, and might easily be mistaken for innocent butter-wouldn't-melt-in-their-mouth nuggets of pure goodness when standing next to the following filthy tags.</p>
+					<ul>
+					<li><strong><code>u</code></strong>可以为元素产生下划线。它提醒着下划线文本还很多连接关联。这就是这个标签死了很久的原因——你不必给非连接文本下划线。</li>
+					<li><strong><code>center</code></strong>可以用来居中在元素内部的元素。CSS属性<code>text-align</code>允许不仅仅是<code>center</code>，还有<code>left</code>、<code>right</code>和<code>justify</code>。</li>
+					<li><strong><code>menu</code></strong>用来创建菜单列表。它并没有<code>ul</code>做的完美，在因为无序列表更通用，<code>ul</code>高高地站在menu的尸体上。</li>
+					<li><strong><code>layer</code></strong>和<code>div</code>元素相似，都由CSS绝顶位置。这仅仅能在老版本的Netscape中工作，所以再也没有什么用。</li>
+					<li><strong><code>blink</code></strong>或者<strong><code>marquee</code></strong>。大声说不！它们应该像本身意义一样被期待，但有着十分有限的支持，和，只会产生非常，非常恶心的<a href="http://www.goer.org/Journal/2003/Oct/index.html#26">笑话</a>。</li>						<li><strong><code>font</code></strong>，可以用来定义元素的字体名称，尺寸和颜色，在标签世界中理所当然地获得了臭名昭著标签之王荣誉称号。旧的网站（甚至新的也有）像满世界的瘟疫之蚁一样布满整个页面。大部分的<code>font</code>标签激增是从网页制作软件带来的，把<code>font</code>标签包括颜色和尺寸用在每一个元素。<code>font</code>标签被滥用到出现在当前的每一个重复元素的（如，每次你使用<code>p</code>元素），而CSS，则可以用一条简短的代码来应用重复元素，甚至控制整个网站。使用CSS方法，不仅可以使页面比被大量<code>font</code>标签寄生的<strong>更苗条</strong>，而且更容易维护因为你所需要做得只是改变CSS文件中的<strong>一行</strong>，而不是逐一修改每一个<code>font</code>标签。这也增加了维护一个一直保持设计风格一致的网站的可能性。<code>font</code>标签和不恰当的表格使用是两个产生网页不必要臃肿的主要原因。</li>
+				</ul>
+					<h2>属性</h2>
+					<p>可能你认为你正在使用良好的标签，但还是有一些麻烦的寄生虫属性潜伏，它们随时会冒出来。</p>
+					<ul>
+					<li><strong><code>name</code></strong>用来为一个元素指定一个名字，它在如<code>input</code>的表单元素中完全被接受，但在其它地方，<code>name</code>的工作已经被<code>id</code>属性取代。</li>
+					<li><strong><code>text</code></strong>和<strong><code>bgcolor</code></strong>可以在<code>body</code>起始标签中定义页面的基本文本颜色和背景颜色。CSS的<code>color</code>和<code>background-color</code>属性在应用到<code>body</code>选择符时也可以做到。</li>
+				<li><strong><code>background</code></strong>可以在body标签中指定一个背景图画。CSS会做得更好，用如background-image的属性来处理背景图片。</li>
+					<li><strong><code>link</code></strong>、<strong><code>alink</code></strong>、<strong><code>vlink</code></strong>在<code>body</code>标签中用来指定连接（未访问，激活和已访问）。CSS宝贝── <code>:link</code>、<code>:active</code>和<code>:visited</code>会做这项工作。</li>
+					<li><strong><code>align</code></strong>可以用来对齐某个元素的内容（比如 <code>&lt;div align="center"&gt;Stuff&lt;/div&gt;</code>），但是，像<code>center</code>标签，CSS的<code>text-align</code>属性是新的老板。</li>
+					<li><strong><code>target</code></strong>可以用不同的方式打开一个连接，最常用的是打开新窗口（比如<code>&lt;a href="wherever.html" rel="newlink"&gt;Help me&lt;/a&gt;</code>）。看起来不错，但你不要对你的网站这样做。用户并不预期不可思议的东西（比如新窗口）出现，而且最常用的浏览工具是浏览器的后退按钮，如果你打开新窗口，这将不可用。它是非法和不易用的。</li>
+					</ul>
+					<div class="note">
+						<h3>注意</h3>
+						<p>保留标签的表现属性如图像的<code>width</code>和<code>height</code>，表格的<code>cellpadding</code>和<code>cellspacing</code>，是由于这些元素经常使用不同的值。这不是完美的解决方案，但如果你的网页有大量的图像和表格，你没有其他的明智选择，只好使用它们。</p>
+						<p>最让人难以理解的表现属性是<code>textarea</code>标签，它仅有<code>cols</code>和<code>rows</code>两个合法属性，在最新的HTML版本中也是必须的。</p>
+					</div>
+					<h2>良好标签，不良使用</h2>
+					<p>要进入你的卧室你可以弯腰通过一个狗洞，但等等，还有一扇有把手的为人类准备的门！哇，看——刚好适合一个进入。</p>
+					<p>使用HTML标签（好标签），无论相信与否（相信它！），有一个很好的的理由：你使用它们有一个好前提，你就会有一个更好的结果。</p>
+					<p>网页本身对用户来说，比起HTML标签语法语义更易用，屏幕阅读器常会在遇到一个<code>ul</code>标签或者有着<code>h1</code>或<code>h2</code>的标题标签时强调突出它们。</p>
+					<p>在HTML标签世界中最被滥用的就是表格了。表格常常用来布局，但表格应该仅仅只用来展示表格式数据，就如它们本身的设计意图。<a href="css-advanced-layout.html">不用表格的布局方法</a>不是追求开悟的某种禅，它不仅可以显著地为网页减肥，而且更易于维护和重新设计。</p>
+					<div class="note">
+						<h3>注意</h3>
+						<p>有时侯设计者还会用在这里提到的这些标签和属性（特别是用表格来布局）来做<strong>过渡型</strong>的设计──既可以工作在老版本的浏览器上（尤其是Netscape4），也可以工作在现代浏览器上。表格确实可以在CSS不称职的Netscape4上有更强的表现控制。很不幸，这些用户很少而且越来越少了，而展现表格布局的缺点一览无遗的移动设备用户越来越多。上述的无表格设计可以预防这些缺点，尽管对一小部分的用户有些许的表现改变，但还能在<strong>所有的</strong>浏览其中保持着完全的功能。</p>
+					</div>
+					<h2>框架</h2>
+					<p>Goldilocks认为喝上一杯麦片粥是一个不错的注意，但三个硕大的肉食哺乳动物突然出现，把她丢出窗户。框架就是装麦片粥的杯子。它们看起来似乎不错，但已经到了濒危阶段而且很快就会消失。</p>
+					<p>大部分的网站并不是用框架，而一般用户也会把一个文档当作一页。</p>
+					<p>有些情况，如你要防止用户不能把特定的网页添加到书签，又如你希望用户用Email或即时聊天软件推荐特定的网页，又或你想把整个网站变得十分复杂，让使用屏幕阅读器的用户在框架之间频繁操作，还或者你想迷惑搜索引擎，够了够了，你使用框架吧！</p>
+					<p>总之，框架只会<strong>增加复杂性</strong>和<strong>丧失可用性</strong>。</p>
+					<div class="note">
+						<h3>注意</h3>
+						<p>只要你遵循下列规则，你不会在犯错上有前途：</p>
+						<p><strong>1）</strong>一个标签或者属性就算只有一点点的跟<strong>表现</strong>搭上，都不要使用。那是CSS的事。并且CSS做得更好。</p>
+						<p><strong>2）</strong>把标签使用在如它的<strong>名字所暗示</strong>的用途上。表格标签是用在表格式数据上的。标题标签是用在标题上的。等等等等。</p>
+						<p><strong>3）</strong>特定的内容用<strong>恰当</strong>的标签。列表用<code>list</code>，标题用hx(x = 1 - 7)等等等等。</p>
+					</div>
+					<h3 class="break">延伸阅读</h3>
+					<ul>
+						<li>HTML高级指南的<a href="html-advanced-recap.html">标准要点</a>：戒掉坏习惯和转向标准──兼容XHMTL</li>
+					</ul>
+		
+</div><!--内容结束-->
+	
+
+<div id="g728x15l" class="iclear">
+<script type="text/javascript" src="/js/g728x15l.js">
+	</script>
+	<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+</div>
+<div id="web_footer" class="txt_c iclear">
+	<div id="footer_link" class="li_inline">
+	<ul>
+	<li><a href="#web_head" accesskey="0" title="AccessKey 0:jupm to this page head">顶部(0)</a></li>
+	<li><a href="../../accessibility.htm" accesskey="a" title="AccessKey A:Accessibility of this site">可访问性(A)</a></li>
+	<li><a href="../../FAQ.htm#accesskey_list" accesskey="k" title="AccessKey K:how use AccessKey  at this site">快捷键(K)</a></li>
+	<li><a href="../../About.htm" title="About US">关于我们</a></li>
+	<li><a href="../../team/contact.htm" accesskey="c" title="AccessKey c:go to page of contact us">联系(C)</a></li>
+	<li><a href="../../team/" title="CodeCoke Team">CoC团队</a></li>
+	<li><a href="../../link.htm" title="links">链接</a></li>
+		<li><a href="../../SiteMap.htm" accesskey="m" title="AccessKey M:site Map">网站地图(M)</a></li>
+	<li><a href="../../server/mail.htm">邮箱</a></li>
+	<li><a href="../../team/copyLeft.htm" title="CopyRight">版权-创用共享</a></li>
+	</ul>
+	</div>
+	<div id="footer_copyright">&copy;&nbsp;2006&nbsp;<a href="http://www.codecoke.com/" title="CodeCoke web Tech">Code<span class="coc">Coke</span>.com&nbsp;代码课</a></div>
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+_uacct = "UA-283516-3";
+urchinTracker();
+</script>
+</body></html>

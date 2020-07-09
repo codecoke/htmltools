@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/2001/REC-xhtml11-20010531/DTD/xhtml11-flat.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" href="../../skin/utf-8/global.css" rel="stylesheet" media="screen,projection" />
+<link type="text/css" href="../../skin/utf-8/global_blue.css" rel="stylesheet" media="screen,projection" />
+<link type="text/css" href="../../skin/utf-8/p.css" rel="stylesheet" media="screen,projection" />
+<link type="text/css" href="../../skin/utf-8/p_blue.css" rel="stylesheet" media="screen,projection" />
+<title>第十一天：跳过导览列的链结 - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="CodeCoke.com" href="http://www.codecoke.com/" />
+
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：小莉" href="day_1_Jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_10_presenting_your_main_content_first.html" title="第十天：先呈现你的主要内容" />
+<link rel="next" href="day_12_using_color_safely.html" title="第十二天：安全地使用色彩" />
+
+
+<script type="text/javascript" src="/js/utf-8/newlink.js"></script>
+</head>
+<body>
+<div id="icontent">
+<div id="p_con">
+<!--contentStar-->
+<h1>第十一天：跳过导航列的链结</h1>
+<h2>Skipping Over Navigation Links 第十一天：跳过导航列的链结</h2>
+<!--titleAD-->
+<div class="txt_c">
+	<script type="text/javascript" src="/js/utf-8/g468x60white.js">
+	</script>
+	<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+</div>
+<p>就算你不想要把模版改成<a title="第十天：先呈现你的主要内容" href="day_10_presenting_your_main_content_first.html">内容在前</a>的样子，至少也该妥协一下，提供跳过导航区的链结。这并不是多完美的解决方案（先把主要的内容放在前面才是王道），但至少是许多网站都愿意采用的权变之策。</p>
+
+<p>这个“跳过链结”就跟其他链结一样，其实就只是标准的 <code>&lt;a&gt;</code> 标签；不过我们会用 <acronym title="cascading style sheets">CSS</acronym> 把他隐藏起来，所以你在 Internet Explorer 或 Netscape 上完全看不到，也不会影响到你本来的版面设计。</p>
+
+<h3>谁因此获益？</h3>
+ <blockquote>
+<ol>
+<li><a href="day_5_marcus.html">陈建国</a> 从中获益了。因为当他浏览这个页面时， <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a> 就会显示出这个链结，让他能够跳过导航列，而直接阅读主要的内容。至于这件事的重要性，请参照<a href="day_10_presenting_your_main_content_first.html">第十天：先呈现你的主要内容</a>里所举的例子。</li>
+<li><a href="day_1_Jackie.html">小莉</a> 从中获益了。因为当他浏览这个页面时， <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp" rel="newlink">JAWS</a> 就会读出这个链结，让他能够跳过导航列，而直接阅读主要的内容。</li>
+</ol>
+</blockquote>
+<h3>怎么做</h3>
+
+
+<p>首先请用 <a href="http://www.delorie.com/web/lynxview.html">Lynx Viewer</a> 来看看你的主页面是不是会把导航列放在主要内容之前。如果你的主要内容更早出现的话，你就不需要用到我们今天所要探讨的技巧了；放自己一天假，玩乐去吧！</p>
+
+<p>现在让我们定义这个跳过链结所要用的 <acronym title="cascading style sheets">CSS</acronym> 样式，让它在视觉性浏览器上消失不见。如果你用了外部样式表的话，就把这个规则加到最后面（如果你用了多重外部样式表的话，请把这个规则加到适用 Netscape 4 的那一个里）。如果你本来只在模版开头的地方使用 <code>&lt;style&gt;</code> 区段来定义样式的话，请在 <code>&lt;style&gt;</code> 标签之后加入这个规则。</p>
+
+<code>.skiplink {display:none}</code>
+
+<p>接下来是把这个跳过链结直接插入到网站名称和网站描述之后的地方。找不到吗？也许你该搜索一下相对应的模版变数。</p>
+<blockquote>
+<ul>
+<li>Movable Type: 寻找 <code>&lt;$MTBlogTitle$&gt;</code> 和 <code>&lt;$MTBlogDescription$&gt;</code> 。</li>
+<li>Greymatter: 没有特定的模版变数；你应该直接搜索网站的名称和标签列。</li>
+<li>Radio: 寻找 <code>&lt;%siteName%&gt;</code> 和 <code>&lt;%description%&gt;</code> 。</li>
+<li>Manila: 寻找 <code>{homePageLink (siteName)}</code> 和 <code>{tagLine}</code> 。</li>
+<li>Blogger: 寻找 <code>&lt;$BlogTitle$&gt;</code> 。</li>
+</ul>
+</blockquote>
+<p>现在找到了吗？切记要在网站名称和描述的<em>正下方</em>插入这个跳过链结：</p>
+
+<pre><code class="no_border">&lt;a class=&quot;skiplink&quot; <br />href=&quot;#startcontent&quot;&gt;跳过导航列&lt;/a&gt;</code></pre>
+
+<p>好，现在你还需要设立跳过连结所要指到的定位锚标签，理论上也就是指到你的主要内容去。你找不到主要内容吗？别着急，模版变数再度拯救了今天的课程。</p>
+<blockquote>
+<ul>
+<li>Movable Type: 寻找 <code>&lt;MTEntries&gt;</code> 。</li>
+<li>Greymatter: 在你的 Main Index Template 里寻找 <code>{{logbody}}</code> ，然后在你的 Entry Page Templates 里寻找 <code>{{entrymainbody}}</code> 。</li>
+<li>Radio: 寻找 <code>&lt;%bodytext%&gt;</code> 。</li>
+<li>Manila: 寻找 <code>{bodytext}</code> 。</li>
+<li>Blogger: 寻找 <code>&lt;Blogger&gt;</code> 。</li>
+</ul>
+</blockquote>
+<p>接下来，要使用的定位锚标签格式则会因你使用的 <acronym title="hypertext markup language">HTML</acronym> 不同而有所出入。<a href="day_6_choosing_a_doctype.html">检查一下你的 DOCTYPE</a> ，然后从底下选一个合适的来用：</p>
+<blockquote>
+<ol>
+<li><p>如果你用的是任何一种 <code>HTML 4</code> 的话，请在你的主要内容前面加入这个：<br />
+
+<code>&lt;a name=&quot;startcontent&quot;&gt;&lt;/a&gt;</code></p>
+</li>
+<li><p>如果你用的是任何一种 <code>XHTML 1.0</code> 的话，请在你的主要内容前面加入这个：<br />
+<code>&lt;a name=&quot;startcontent&quot; id=&quot;startcontent&quot;&gt;&lt;/a&gt;</code></p>
+</li>
+<li><p>如果你用的是任何一种 <code>XHTML 1.1</code> 的话，请在你的主要内容前面加入这个：<br /><code>&lt;a id=&quot;startcontent&quot;&gt;&lt;/a&gt;</code></p>
+</li>
+</ol>
+</blockquote>
+<p>你应该在网站上的每一页都提供这样的跳过链结，所以在每个模版里都依样画葫芦，加入这些东西吧。</p>
+
+
+
+<p class="pageturn">
+<a href="day_10_presenting_your_main_content_first.html">&lt;&lt; 第十天：先呈现你的主要内容</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="day_12_using_color_safely.html">第十二天：安全地使用色彩 &gt;&gt;</a>
+</p>
+
+</div>
+</div>
+<!--contentEnd-->
+<!--topStar-->
+<div id="site_top">	
+	<div id="site_nav">
+	<a href="#channel_nav" class="skip">跳到频道导航</a>
+	<ul>
+	<li><a href="#site_footer" accesskey="9" title="AccessKey 9">↓</a></li>
+	<li><a href="../../log/" accesskey="l" title="AccessKey L">日志</a></li>
+	<li><a href="../../downLoad/" accesskey="d" title="AccessKey D">资源</a></li>
+	<li><a href="../../links/" accesskey="i" title="AccessKey I">酷站</a></li>
+	<li><a href="../../server/" accesskey="b" title="AccessKey S">服务</a></li>
+	<li><a href="../../tech/" accesskey="w" title="AccessKey W" class="now_here">教程</a></li>
+	<li><a href="../../" accesskey="h" title="AccessKey H: go to home page">首页</a></li>
+	</ul>
+	<span class="iclear"></span>
+	</div>
+	<div id="channel_nav" class="iclear">
+		<a href="#end_channel_nav" class="skip">Skip channel nav</a>
+	<ul>
+		<li><strong>Accessibility</strong></li>
+		<li>|<a href="../html-css-guide/">HTML-CSS标准指南</a></li>		
+		<li>|<a href="../VBScript">VBScript</a>|</li>
+		<li><a href="../JavaScript">JavaScript</a>|</li>
+		<li><a href="../CSS2_guide/">CSS2.0</a>|</li>
+		<li><a href="../web-design/">Web&nbsp;Design</a>|</li>
+		<li><a href="../Ajax/">Ajax</a></li>		
+	</ul>
+	<span id="end_channel_nav" class="skip">End&nbsp;Channel&nbsp;Nav</span>
+	</div>
+	<!--siteNavEnd-->
+<div id="site_head">
+		<a href="#icontent" class="skip">略过头部</a>
+		<div id="site_logo">
+		<a href="/">Code<span class="coc">Coke</span></a>
+		<strong>代码课&nbsp;&nbsp;.com</strong>
+		</div>		
+		<div id="site_search">	<script src="../../js/utf-8/site-search.js" type="text/javascript"></script></div>
+		<p><em>{</em>Divo&nbsp;in&nbsp;Accessibility</p>
+		<div id="site_path">您的位置&gt;<a href="../../" accesskey="h">首页</a>&gt;<a href="../">教程</a>&gt;<a href="./">30Day可访问性指南</a>&gt;<span>阅读</span></div>
+		<span class="iclear"></span>
+</div>
+<!--headEnd-->
+</div>
+<!--siteTopEnd-->
+<div id="site_desc"><a href="#icontent" title="跳到内容">&gt;</a>可访问性指南</div>
+<!--pageNavStar-->
+<div id="p_nav">
+	<a href="#p_nav_end" class="skip">略过页面导航</a>
+<div class="pnav_team">
+<h3>Divo in Accessibility</h3>
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">阅读说明</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">按人物不同阅读</a></li>
+<li><a href="by_disability.html">按障碍不同阅读</a></li>
+<li><a href="by_design_principle.html">按设计原则不同阅读</a></li>
+<li><a href="by_web_browser.html">按浏览器差异阅读</a></li>
+<li><a href="by_publishing_tool.html">按出版工具不同阅读</a></li>
+<li><a href="../../team/contact.htm" accesskey="c">建议与回响</a></li>
+<li><a title="著作权跟授权资讯" href="terms_of_use.html" accesskey="8">版权声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+</div>
+<div class="pnav_piece txt_c">
+	<script type="text/javascript" src="/js/utf-8/g200x200blue_light.js">
+	</script>
+	<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"> 
+	</script>
+</div>
+<div class="pnav_piece">
+<p><a href="../css2_guide/">CSS2.0 中文手册</a></p>
+<p><a href="../html-css-guide/">HTML&nbsp;标准指南</a></p>
+<p>
+	<script type="text/javascript" src="/js/utf-8/gadsence_txt.js">
+	</script>
+	<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"> 
+	</script>
+</p>
+</div>
+</div>
+<!--pageNavEnd-->
+<div class="iclear g728x90gray">
+		<script type="text/javascript" src="/js/utf-8/g728x90gray.js">
+		</script>
+		<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
+</div>
+<div id="footer_ad" class="iclear">
+	<script type="text/javascript" src="/js/utf-8/g728x15gray.js">
+	</script>
+	<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+</div>
+<div id="site_footer" class="txt_c iclear">
+	<div id="footer_nav" class="li_inline">
+	<ul>
+	<li><a href="#site_top" accesskey="0" title="AccessKey 0:jupm to this page head">顶部(0)</a></li>
+	<li><a href="../../accessibility.htm" accesskey="a" title="AccessKey A:Accessibility of this site">可访问性(A)</a></li>
+	<li><a href="../../FAQ.htm#accesskey_list" accesskey="k" title="AccessKey K:how use AccessKey  at this site">快捷键(K)</a></li>
+	<li><a href="../../About.htm" title="About US">关于我们</a></li>
+	<li><a href="../../team/contact.htm" accesskey="c" title="AccessKey c:go to page of contact us">联系(C)</a></li>
+	<li><a href="../../team/" title="CodeCoke Team">CoC团队</a></li>
+	<li><a href="../../link.htm" title="links">链接</a></li>
+	<li><a href="../../SiteMap.htm" accesskey="m" title="AccessKey M:site map">网站地图(M)</a></li>
+	<li><a href="../../server/mail.htm" title="CodeCoke Mail Login">邮箱</a></li>
+	<li><a href="../../team/copyLeft.htm" title="CopyRight">版权-创用共享</a></li>
+	</ul>
+	</div>
+	<div id="footer_copyright">&copy;&nbsp;2006&nbsp;<a href="http://www.codecoke.com/" title="CodeCoke web tech">Code<span class="coc">Coke</span>&nbsp;代码课</a><a href="http://validator.w3.org/check?uri=http%3A%2F%2Fwww.codecoke.com%2F" rel="newlink" title="Valid XHTML 1.1" class="w3c_valid">XHTML1.1</a><a href="http://jigsaw.w3.org/css-validator/validator?uri=http://www.codecoke.com" rel="newlink" title="Valid CSS2.0" class="w3c_valid">CSS2.0</a></div>
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+_uacct = "UA-283516-3";
+urchinTracker();
+</script>
+</body></html>
+
+

@@ -1,0 +1,84 @@
+@charset "utf-8";
+/*===CopyRight CobStudio MailTo: wwwibarcn_AT_hotmail_com ===*/
+
+*,html { margin:0;padding:0;}
+a img {border:0;}
+body {
+ font:small/1.8 Arial,Georgia,verdana,"宋体",serif,sans-serif;
+ margin: 0 5px 0.5em;
+ padding:0 1em;
+}
+
+a {margin-right:5px; color:#313031;}
+
+h1,h2,h3,h4 { font-family: Georgia,'Times New Roman', Times,verdana,"宋体",serif,sans-serif;}
+h2 {font-size:1.2em;text-indent:1em;}
+h3 { font-size:1em;}
+#web_head h1 { float:left;}
+#web_head h1 a { text-decoration:none;}
+#web_head h1 { 
+font-weight   : normal;
+padding-right : 0.5em; 
+margin        : 0.5em; 
+border-right  : 2px solid #333;
+line-height : 1em;
+ }
+#web_head h1 a { color:#000;}
+.coc,#web_head h1 strong { color:#ce0000;}
+#web_head h2 {padding-top:1.2em; color:#bababa; }
+#web_nav { border-bottom:1px solid #636563; background-color:#fffbf7; padding: 3px 5px;}
+#web_search input.cg_btn {background-color:#ce0000; color:#fff; border-color:#ce0000;}
+#web_path { border-bottom:2px solid #ad1410; padding-bottom:3px;}
+/*---footer---*/
+.channel_links {
+border-top:1px solid;
+border-color:#848284;
+margin-top:1em;
+padding:0 10px 5px;
+/*background-color:#f5f5f5;*/
+}
+#web_footer { border-top:1px solid #000;}
+#footer_link { line-height:3em;}
+
+
+/*---GlobalStyle--*/
+.warn {
+padding:10px;
+margin:0.5em 0.5em 0.5em 2em; 
+border-width: 1px 1px 1px 3px;
+border-style:solid;
+border-color:#cecfce #cecfce #cecfce #ff5900;
+}
+.ileft,.left_l { float:left;}
+.iright,.right_r { float:right;}
+.iclear { clear:both;}
+.clear_l { clear:left;}
+.clear_r { clear:right;}
+.iblock { display:block;}
+.skip { display:none;}
+.inline,.li_inline li { display:inline;}
+
+.txt_c { text-align:center;}
+.txt_r { text-align:right;}
+.txt_l { text-align:left;}
+
+acronym,abbr { margin:0 5px;padding:0 5px; border:1px dotted #bbb; cursor:help;}
+
+/*---GlobalFontColor---*/
+
+.font_blue { color:blue;}
+.font_red,.do_not { color:red;}
+.do_not { text-decoration:line-through; font-size:medium;cursor:help;}
+.good { cursor:help;}
+.font_green,.good { color:green;}
+.font_white { color:white;}
+.font_black { color:black;}
+.font_orange { color:#FF5900;}
+.font_italic { font-style:italic;}
+
+.accessibility { background-color:#ff6600; color:#fff; font-size:medium; margin:0.5em 0;}
+.accessibility a { color:#fff;}
+
+#g468x60fff { margin-bottom:5px;}
+#g200x200sub{border-top:1px solid #ded7b5; padding-left:5px;}
+#g728x15l {background-color:#eee;padding:5px;}
