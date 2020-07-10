@@ -1,6 +1,6 @@
 // 将设置放入此文件中以覆盖默认设置
 {
-  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+  //"terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
   "window.zoomLevel": 0,
   "workbench.colorTheme": "Visual Studio Dark",
   "files.associations": {

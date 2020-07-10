@@ -1,12 +1,13 @@
 
-[codecoke logo]: ./codecokelogo.gif "http://git.codecoke.com"
+[codecoke com logo]: ./codecokelogo.gif "http://git.codecoke.com"
+[git codecoke logo]: public/images/icon.git.codecoke.png "https://git.codecoke.com"
 [codecoke doc]: https://github.com/codecoke/htmltools/tree/master/docs
 [codecoke git]: https://github.com/codecoke/htmltools/
 [codecoke http]: http://git.codecoke.com/
 
 
 
-![git.codecoke.com][codecoke logo]
+![git.codecoke.com][git codecoke logo]
 
 [git.codecoke.com][codecoke http] / [git docs][codecoke doc]
 
@@ -20,6 +21,12 @@
 | __code fun__ |  |  |  | . |
 |[markdown 语法](./markdown/basics-tw.md) | [git-lean](./git/git-lean-mf.md) ||||
 
+
+![git.codecoke.com][codecoke  com logo]
+
+<script>
+  console.log(`hi console`);
+</script>
 
 ## 版权许可
 

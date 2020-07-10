@@ -1,18 +1,18 @@
 // 将设置放入此文件中以覆盖默认设置
 {
-  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
-"window.zoomLevel": 0,
+  //   "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+  "window.zoomLevel": 0,
   "files.associations": {
-      "*.s.asp":"javascript"
+    "*.s.asp": "javascript"
   },
   "editor.snippetSuggestions": "top",
   "[javascript]": {
-      "editor.insertSpaces": true,
-      "editor.tabSize":2
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
   },
   "[html]": {
-      "editor.insertSpaces": true,
-      "editor.tabSize":2
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
   },
   "files.eol": "\n",
   "files.autoSave": "afterDelay",
@@ -25,32 +25,30 @@
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "all",
   "git.confirmSync": false,
-  "workbench.statusBar.feedback.visible": false,
+// "workbench.statusBar.feedback.visible": false,
   "liveServer.settings.donotShowInfoMsg": true,
   // 启用后，按下 TAB 键，将展开 Emmet 缩写。
   "emmet.triggerExpansionOnTab": true,
   // 用于 Emmet 代码片段的变量
   "emmet.variables": {},
   "emmet.includeLanguages": {
-      "javascript":"html"
+    "javascript": "html"
   },
   "eslint.options": {
-      "configFile":"X:\\localDevelop\\pc_36d5\\vscode-setting\\eslint\\.eslintrc.js"
-      ,"plugins": ["html"],
+    "configFile": "X:\\localDevelop\\pc_36d5\\vscode-setting\\eslint\\.eslintrc.js",
+    "plugins": ["html"]
   },
   "eslint.autoFixOnSave": false,
-   // Run the linter on save (onSave) or on type (onType)
+  // Run the linter on save (onSave) or on type (onType)
   "eslint.run": "onType",
   "eslint.validate": [
-      "javascript",
-      "javascriptreact",
-      "html",
-      { "language": "html", "autoFix": true }
+    "javascript",
+    "javascriptreact",
+    "html",
+    { "language": "html", "autoFix": true }
   ],
   "eslint.nodePath": null,
-  "eslint.workingDirectories": [
-
-  ],
+  "eslint.workingDirectories": [],
   "javascript.validate.enable": false,
   // "typescript.npm": "X:\\localAppRun\\pro\nodejs\\npm.cmd",
   // "javascript.implicitProjectConfig.checkJs": true,
@@ -60,10 +58,10 @@
   // "projectManager.projectsLocation": "X:\\localDevelop\\pc_36d5\\vscode-setting\\projects.json",
 
   "projectManager.vscode.ignoredFolders": [
-      "node_modules",
-      "out",
-      "typings",
-      "test"
+    "node_modules",
+    "out",
+    "typings",
+    "test"
   ],
   "projectManager.vscode.maxDepthRecursion": 4,
   "projectManager.sortList": "Name",
@@ -72,7 +70,6 @@
   "workbench.colorTheme": "Visual Studio Dark",
   "workbench.commandPalette.history": 80,
   "workbench.editor.tabSizing": "shrink",
-  "editor.tabSize": 2,
+  "editor.tabSize": 2
   // "projectManager.showProjectNameInStatusBar": true,
-
 }
