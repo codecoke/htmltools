@@ -25,7 +25,7 @@
 ![git.codecoke.com][codecoke  com logo]
 
 <script>
-  console.log(`hi console`);
+  // console.log(`hi console`);
 </script>
 
 ## 版权许可
