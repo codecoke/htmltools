@@ -22,9 +22,12 @@ yarn-debug.log*
 yarn-error.log*
 
 # mf vscode setting
-/.vscode
+# .vscode/**
+**/.vscode/
+.vscode/**
 /src/_theme
 **/.bak/
 *.bat
 *.lnk
 *.env
+
